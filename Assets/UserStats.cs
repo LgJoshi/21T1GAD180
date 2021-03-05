@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStart : MonoBehaviour
+public class UserStats : MonoBehaviour
 {
     // Start is called before the first frame update
+    List<string> userTags;
+    List<string> allTags;
+
     void Start()
     {
         
     }
-
-    List<string> userTags;
-    List<string> allTags;
 
     // Update is called once per frame
     void Update()

@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Event for starting the game
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
