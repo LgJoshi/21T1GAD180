@@ -17,6 +17,12 @@ public class UserC : MonoBehaviour
     public Text tagTextTwo;
     public Text tagTextThree;
 
+    public Image pic1;
+    public Image pic2;
+    public Image pic3;
+
+    public int profilePic;
+
     //bools to be used later in development
     bool join = false;
     bool leave = false;
@@ -38,13 +44,37 @@ public class UserC : MonoBehaviour
         tags.Add("Sandbox");
         tags.Add("Competitive");
 
+        pic1.enabled = false;
+        pic2.enabled = false;
+        pic3.enabled = false;
+
         //sets username at start
         userName = "Sam";
         userNameText.text = "Sam";
+        //executes GetPic on start
+        profilePic = (Random.Range(0, 89));
+        GetPic();
         //executes GetTags on start
         GetTags(tagOne, tagTwo, tagThree);        
     }
 
+    public void GetPic()
+    {
+        if (profilePic <= 29)
+        {
+            pic1.enabled = true;
+        }
+
+        else if (profilePic >= 30 && profilePic <= 59)
+        {
+            pic2.enabled = true;
+        }
+
+        else if (profilePic >= 60 && profilePic <= 89)
+        {
+            pic3.enabled = true;
+        }
+    }
 
 
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
