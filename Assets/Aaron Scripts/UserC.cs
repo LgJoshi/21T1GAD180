@@ -28,7 +28,7 @@ public class UserC : MonoBehaviour
     bool leave = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         //creates new list of tags
