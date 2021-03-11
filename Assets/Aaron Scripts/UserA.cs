@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class User : MonoBehaviour
+public class UserA : MonoBehaviour
 {
+
     public List<string> tags;
     public List<string> userNames;
 
-    public string userName = "Bill";
+    public string userName;
     public string tagOne;
     public string tagTwo;
     public string tagThree;
+
+    public Text userNameText;
+    public Text tagTextOne;
+    public Text tagTextTwo;
+    public Text tagTextThree;
 
     //bools to be used later in development
     bool join = false;
@@ -19,6 +26,7 @@ public class User : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //creates new list of tags
         tags = new List<string>();
         tags.Add("FPS");
@@ -32,64 +40,41 @@ public class User : MonoBehaviour
         tags.Add("Sandbox");
         tags.Add("Competitive");
 
-        userNames = new List<string>();
-        userNames.Add("Bill");
-        userNames.Add("Jane");
-        userNames.Add("Jenny");
-        userNames.Add("Tom");
-        userNames.Add("Roger");
-        userNames.Add("Diane");
-        userNames.Add("Cedric");
-
-        //executes GetUsername on start
-        GetUsername(userName);
+        //sets username at start
+        userName = "Tim";
+        userNameText.text = "Tim";
         //executes GetTags on start
         GetTags(tagOne, tagTwo, tagThree);
+
     }
+
+
 
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
     {
         tagOne = newTagOne;
         tagTwo = newTagTwo;
         tagThree = newTagThree;
-        //sets range to 3 tags (0 - 2)
-        for (int i = 0; i <= 2; i++)
+
+        for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
             tagOne = tags[Random.Range(0, tags.Count)];
             print("Tag One = " + tagOne);
+            tagTextOne.text = tagOne;
             tags.Remove(tagOne);
             //selects tagTwo as a random number in the list between 0 & 9, prints to console
             tagTwo = tags[Random.Range(0, tags.Count)];
             print("Tag Two = " + tagTwo);
+            tagTextTwo.text = tagTwo;
             tags.Remove(tagTwo);
             //selects tagThree as a random number in the list between 0 & 9, prints to console
             tagThree = tags[Random.Range(0, tags.Count)];
             print("Tag Three = " + tagThree);
+            tagTextThree.text = tagThree;
             tags.Remove(tagThree);
         }
 
     }
-
-    public void GetUsername(string newUserName)
-    {
-        userName = newUserName;
-
-        for(int i = 0; i < 1; i++)
-        {
-            userName = userNames[Random.Range(0, 6)];
-            print("Username = " + userName);
-            userNames.Remove(this.userName);
-        }
-
-    }
-
-    private void Update()
-    {
-    }
-
-
-
-
 
 }

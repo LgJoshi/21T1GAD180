@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TagsList : MonoBehaviour
 {
-    User user;
     public List<string> tags;
     string tagOne;
     string tagTwo;
