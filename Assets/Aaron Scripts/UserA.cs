@@ -7,7 +7,6 @@ public class UserA : MonoBehaviour
 {
 
     public List<string> tags;
-    public List<string> userNames;
 
     public string userName;
     public string tagOne;
@@ -31,6 +30,7 @@ public class UserA : MonoBehaviour
     //bools to be used later in development
     bool join = false;
     bool leave = false;
+    public int mood = 40;
 
     // Start is called before the first frame update
     void Awake()
@@ -60,6 +60,41 @@ public class UserA : MonoBehaviour
         GetPic();
         //executes GetTags on start
         GetTags(tagOne, tagTwo, tagThree);
+    }
+
+    private void Update()
+    {
+        if(mood == 0)
+        {
+            leave = true;
+            panelDull();
+            //make display transparent
+            //lock out interaction
+        }
+
+        if(mood == 100)
+        {
+            join = true;
+            panelDull();
+            //add user to call panel
+            //lock out interaction
+        }
+
+        //need to adjust below once gameTimer is added
+        /*if (mood <= 99 && gameTimer == 0)
+        {
+            leave = true;
+            panelDull();
+            //lock interaction
+        }*/
+    }
+
+    void panelDull()
+    {
+        userNameText.color = new Color(1, 1, 1, 0.2f);
+        tagTextOne.color = new Color(1, 1, 1, 0.2f);
+        tagTextTwo.color = new Color(1, 1, 1, 0.2f);
+        tagTextThree.color = new Color(1, 1, 1, 0.2f);  
     }
 
     public void GetPic()

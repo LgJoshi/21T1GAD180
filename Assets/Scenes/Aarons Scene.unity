@@ -999,6 +999,7 @@ MonoBehaviour:
   pic2: {fileID: 1314903700}
   pic3: {fileID: 1602255907}
   profilePic: 0
+  mood: 40
 --- !u!4 &1110479863
 Transform:
   m_ObjectHideFlags: 0
