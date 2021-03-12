@@ -11,7 +11,7 @@ public class PlayerOptions : MonoBehaviour
 
 
 
-    void changeDialogue(string newText, string tag) {
-        
+    public void ChangeDialogue(string newText, string tag) {
+        myText.text = newText;
     }
 }
