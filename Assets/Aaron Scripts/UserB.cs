@@ -12,15 +12,18 @@ public class UserB : MonoBehaviour
     public string tagTwo;
     public string tagThree;
 
+    //text boxes for names/tags
     public Text userNameText;
     public Text tagTextOne;
     public Text tagTextTwo;
     public Text tagTextThree;
 
+    //profile pic locations
     public Image pic1;
     public Image pic2;
     public Image pic3;
 
+    //just a random int to determine which profile pic is used
     public int profilePic;
 
     //bools to be used later in development
