@@ -7,6 +7,8 @@ public class UserB : MonoBehaviour
 {
     public List<string> tags;
 
+    public TagsList tagList;
+
     public string userName;
     public string tagOne;
     public string tagTwo;
@@ -124,17 +126,17 @@ public class UserB : MonoBehaviour
         for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
-            tagOne = tags[Random.Range(0, tags.Count)];
+            tagOne = tagList.tags[Random.Range(0, tags.Count)];
             print("Tag One = " + tagOne);
             tagTextOne.text = tagOne;
             tags.Remove(tagOne);
             //selects tagTwo as a random number in the list between 0 & 9, prints to console
-            tagTwo = tags[Random.Range(0, tags.Count)];
+            tagTwo = tagList.tags[Random.Range(0, tags.Count)];
             print("Tag Two = " + tagTwo);
             tagTextTwo.text = tagTwo;
             tags.Remove(tagTwo);
             //selects tagThree as a random number in the list between 0 & 9, prints to console
-            tagThree = tags[Random.Range(0, tags.Count)];
+            tagThree = tagList.tags[Random.Range(0, tags.Count)];
             print("Tag Three = " + tagThree);
             tagTextThree.text = tagThree;
             tags.Remove(tagThree);

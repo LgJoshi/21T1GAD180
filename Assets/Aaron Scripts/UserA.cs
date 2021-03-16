@@ -37,7 +37,7 @@ public class UserA : MonoBehaviour
     {
         //creates new list of tags
         tags = new List<string>();
-        tags.Add("FPS");
+        tags.Add("FPS");            //need numerical value
         tags.Add("PvP");
         tags.Add("Action");
         tags.Add("Story Driven");

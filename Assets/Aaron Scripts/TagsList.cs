@@ -9,7 +9,7 @@ public class TagsList : MonoBehaviour
     string tagTwo;
     string tagThree;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         tags = new List<string>();
 
