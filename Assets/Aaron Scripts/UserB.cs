@@ -36,20 +36,6 @@ public class UserB : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
-        //creates new list of tags
-        tags = new List<string>();
-        tags.Add("FPS");
-        tags.Add("PvP");
-        tags.Add("Action");
-        tags.Add("Story Driven");
-        tags.Add("Co-Op");
-        tags.Add("Survival");
-        tags.Add("Adventure");
-        tags.Add("Crafting");
-        tags.Add("Sandbox");
-        tags.Add("Competitive");
-
         pic1.enabled = false;
         pic2.enabled = false;
         pic3.enabled = false;
@@ -61,7 +47,10 @@ public class UserB : MonoBehaviour
         profilePic = (Random.Range(0, 89));
         GetPic();
         //executes GetTags on start
-        GetTags(tagOne, tagTwo, tagThree);
+        tagList.GetTags(tagOne, tagTwo, tagThree);
+        //tagTextOne.text = tagList.tagOne;
+        //tagTextTwo.text = tagList.tagTwo;
+        //tagTextThree.text = tagList.tagThree;
     }
 
     private void Update()
@@ -115,33 +104,4 @@ public class UserB : MonoBehaviour
         tagTextTwo.color = new Color(1, 1, 1, 0.2f);
         tagTextThree.color = new Color(1, 1, 1, 0.2f);
     }
-
-
-    public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
-    {
-        tagOne = newTagOne;
-        tagTwo = newTagTwo;
-        tagThree = newTagThree;
-        
-        for (int i = 0; i <= 0; i++)
-        {
-            //selects tagOne as a random number in the list between 0 & 9, prints to console
-            tagOne = tagList.tags[Random.Range(0, tags.Count)];
-            print("Tag One = " + tagOne);
-            tagTextOne.text = tagOne;
-            tags.Remove(tagOne);
-            //selects tagTwo as a random number in the list between 0 & 9, prints to console
-            tagTwo = tagList.tags[Random.Range(0, tags.Count)];
-            print("Tag Two = " + tagTwo);
-            tagTextTwo.text = tagTwo;
-            tags.Remove(tagTwo);
-            //selects tagThree as a random number in the list between 0 & 9, prints to console
-            tagThree = tagList.tags[Random.Range(0, tags.Count)];
-            print("Tag Three = " + tagThree);
-            tagTextThree.text = tagThree;
-            tags.Remove(tagThree);
-        }
-
-    }
-
 }

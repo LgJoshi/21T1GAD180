@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class dialogueExample : MonoBehaviour
 {
-
+    public TagsList tagList;
     string tagOne = "FPS";
     string tagTwo = "Co-Op";
     string tagThree = "Action";
@@ -19,15 +19,15 @@ public class dialogueExample : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            print("Do you want to play this, it has " + tagOne);
+            print("Do you want to play this, it has " + tagList.tagOne);
         }
         if (Input.GetKeyDown("2"))
         {
-            print("How about we play this, it has " + tagTwo);
+            print("How about we play this, it has " + tagList.tagTwo);
         }
         if (Input.GetKeyDown("3"))
         {
-            print("Can we play this, it has " + tagThree);
+            print("Can we play this, it has " + tagList.tagThree);
         }
     }
 }

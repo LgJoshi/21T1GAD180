@@ -18,7 +18,7 @@ public class GameMaster : MonoBehaviour {
 
     public void DialogueChosen(int buttonNumber) {
         
-       /MoodCheck(optionsList[buttonNumber].GetTag());
+       MoodCheck(optionsList[buttonNumber].GetTag());
         
         optionOne.ChangeDialogue("hello", "banana");
     }
