@@ -14,11 +14,11 @@ public class GameMaster : MonoBehaviour {
 
     string[] currentTags = new string[] { "tag1", "tag2", "tag3" };
     string[] currentDialogue = new string[] { "Option1", "Option2", "Option3" };
-    PlayerOptions[] optionsList = new PlayerOptions[] { optionOne, optionTwo, optionThree };
+    //PlayerOptions[] optionsList = new PlayerOptions[] { optionOne, optionTwo, optionThree };
 
     public void DialogueChosen(int buttonNumber) {
         
-       MoodCheck(optionsList[buttonNumber].GetTag());
+       //MoodCheck(optionsList[buttonNumber].GetTag());
         
         optionOne.ChangeDialogue("hello", "banana");
     }

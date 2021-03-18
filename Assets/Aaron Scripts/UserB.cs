@@ -48,9 +48,9 @@ public class UserB : MonoBehaviour
         GetPic();
         //executes GetTags on start
         tagList.GetTags(tagOne, tagTwo, tagThree);
-        //tagTextOne.text = tagList.tagOne;
-        //tagTextTwo.text = tagList.tagTwo;
-        //tagTextThree.text = tagList.tagThree;
+        tagTextOne.text = tagList.tagOne;
+        tagTextTwo.text = tagList.tagTwo;
+        tagTextThree.text = tagList.tagThree;
     }
 
     private void Update()

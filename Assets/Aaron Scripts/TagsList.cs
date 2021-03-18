@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class TagsList : MonoBehaviour
 {
-    //public List<string> tags;
+    public List<string> tags;
 
-    public enum tags
+/*    public enum tags
     {
         FPS,
         PvP,
@@ -19,16 +20,14 @@ public class TagsList : MonoBehaviour
         Sandbox,
         Competitive
     }
-
-    public tags tagOne;
-    public tags tagTwo;
-    public tags tagThree;
+*/
+    public string tagOne;
+    public string tagTwo;
+    public string tagThree;
     // Start is called before the first frame update
     void Awake()
     {
-        
-        /*
-      * 
+
         tags = new List<string>();
 
         tags.Add("FPS");
@@ -41,19 +40,13 @@ public class TagsList : MonoBehaviour
         tags.Add("Crafting");
         tags.Add("Sandbox");
         tags.Add("Competitive");
-  */
+
     }
 
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
     {
-        tagOne = (tags)Random.Range(0, 9);
-        tagTwo = (tags)Random.Range(0, 9);
-        tagThree = (tags)Random.Range(0, 9);
 
-
-
-
-        /*for (int i = 0; i <= 0; i++)
+        for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
             tagOne = tags[Random.Range(0, tags.Count)];
@@ -71,7 +64,7 @@ public class TagsList : MonoBehaviour
             //tagTextThree.text = tagThree;
             tags.Remove(tagThree);
           
-        }*/
+        }
 
     }
 
