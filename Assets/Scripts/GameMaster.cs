@@ -47,20 +47,23 @@ public class GameMaster : MonoBehaviour {
 
     private void Update() {
         if( Input.GetKeyDown("1") ) {
-            print(dialogueList[5]);
+            print("Tag 1 is " + currentTags[0]);
+            print("Tag 1 is " + currentTags[1]);
+            print("Tag 1 is " + currentTags[2]);
         }
     }
 
     public void DialogueChosen(int buttonNumber) {
 
         //MoodCheck(optionsList[buttonNumber].GetTag());
-        print(buttonNumber+"button pre4ssed");
+        print("button "+buttonNumber+" pressed");
         NewDialogue();
         
 
         for( int i = 0;i < 3;i++ ) {
-            currentDialogue[i] = dialogueList[Random.Range(0, dialogueList.Count)];
-            currentTags[i] = tagsList[Random.Range(0, dialogueList.Count)];
+            int randomSelect = Random.Range(0, dialogueList.Count);
+            currentDialogue[i] = dialogueList[randomSelect];
+            currentTags[i] = tagsList[randomSelect];
             print(i);
         }
 
@@ -75,8 +78,6 @@ public class GameMaster : MonoBehaviour {
     }
 
     public void NewDialogue() {
-
-        optionsList[1].ChangeDialogue("yeah", "yo");
 
         for( int i = 0;i < 3;i++ ) {
             optionsList[i].ChangeDialogue(currentDialogue[i], currentTags[i]);
