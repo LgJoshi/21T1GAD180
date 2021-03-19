@@ -23,6 +23,17 @@ public class GameMaster : MonoBehaviour {
     string[] dialogue;
     string[] tags;
     string[][] dialogueCategories;
+    string[] actionDialogue;
+    string[] adventureDialogue;
+    string[] simulationDialogue;
+    string[] sportsDialogue;
+    string[] coopDialogue;
+    string[] survivalDialogue;
+    string[] fpsDialogue;
+    string[] pvpDialogue;
+    string[] sandboxDialogue;
+    string[] craftingDialogue;
+    string[] tacticalDialogue;
 
     //the dialogue and tags will be copied from the above arrays to these lists which can then be manipulated
     List<string> dialogueList;
@@ -43,7 +54,11 @@ public class GameMaster : MonoBehaviour {
 
         //These are the arrays which contain all the dialogue and tags
         dialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg"};
-        tags = new string[] { "TagA", "TagB", "TagC", "TagD", "TagE", "TagF", "TagG" };
+        tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-op", "Survival", 
+                              "FPS", "PvP", "Sandbox", "Crafting", "Tactical" };
+        dialogueCategories = new[] { actionDialogue, adventureDialogue, simulationDialogue, sportsDialogue, 
+                                     coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
+                                     craftingDialogue, tacticalDialogue };
 
         //These are the lists which can be manipulated and changed for new dialogue and tags
         dialogueList = new List<string>(dialogue);
@@ -67,10 +82,10 @@ public class GameMaster : MonoBehaviour {
     }
 
     public void DialogueChosen(int buttonNumber) {
-        /*
-        MoodCheck(optionsList[buttonNumber].GetTag());
-        */
-
+        
+        //takes the tag of the relevant button and puts inputs into MoodCheck function
+        MoodCheck(currentTags[buttonNumber]);
+        
         //debugger text
         print("button "+buttonNumber+" pressed");
 
@@ -85,13 +100,15 @@ public class GameMaster : MonoBehaviour {
         NewDialogue();
     }
 
-    //Function used by users to compare tag
+    //Will be function used by users to compare tag
     public void MoodCheck(string chosenTag ) {
-
+        print("Check mood using " + chosenTag + " tag");
     }
 
+    //this function updates text and tag on buttons
     public void NewDialogue() {
-
+        
+        //goes through each PlayerOptions script and changes relevant dialogue and tag
         for( int i = 0;i < 3;i++ ) {
             optionsList[i].ChangeDialogue(currentDialogue[i], currentTags[i]);
         }
