@@ -34,18 +34,27 @@ public class GameMaster : MonoBehaviour {
         tags = new string[] { "TagA", "TagB", "TagC", "TagD", "TagE", "TagF", "TagG" };
 
         //These are the lists which can be manipulated and changed for new dialogue and tags
-        List<string> dialogueList = new List<string>(dialogue);
-        List<string> tagsList = new List<string>(tags);
+        dialogueList = new List<string>(dialogue);
+        tagsList = new List<string>(tags);
+
+        print(Random.Range(0, dialogueList.Count));
+        print(dialogueList[Random.Range(0, dialogueList.Count)]);
 
         for( int i = 0;i < 3;i++ ) {
             optionsList[i].ChangeDialogue( currentDialogue[i], currentTags[i] );
         }
     }
 
+    private void Update() {
+        if( Input.GetKeyDown("1") ) {
+            print(dialogueList[5]);
+        }
+    }
+
     public void DialogueChosen(int buttonNumber) {
 
         //MoodCheck(optionsList[buttonNumber].GetTag());
-
+        print(buttonNumber+"button pre4ssed");
         NewDialogue();
         
 
@@ -69,7 +78,7 @@ public class GameMaster : MonoBehaviour {
 
         optionsList[1].ChangeDialogue("yeah", "yo");
 
-        for( int i = 0;i < 2;i++ ) {
+        for( int i = 0;i < 3;i++ ) {
             optionsList[i].ChangeDialogue(currentDialogue[i], currentTags[i]);
         }
     }
