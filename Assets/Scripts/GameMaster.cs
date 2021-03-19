@@ -3,33 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
-    // Start is called before the first frame update
+
     public PlayerOptions optionOne;
     public PlayerOptions optionTwo;
     public PlayerOptions optionThree;
 
-    public UserA userA;
+    /*public UserA userA;
     public UserB userB;
     public UserC userC;
+    */
 
-    string[] currentTags = new string[] { "tag1", "tag2", "tag3" };
-    string[] currentDialogue = new string[] { "Option1", "Option2", "Option3" };
-    //PlayerOptions[] optionsList = new PlayerOptions[] { optionOne, optionTwo, optionThree };
+    string[] currentDialogue;
+    string[] currentTags;
+    PlayerOptions[] optionsList;
 
-    public void DialogueChosen(int buttonNumber) {
-        
-       //MoodCheck(optionsList[buttonNumber].GetTag());
-        
-        optionOne.ChangeDialogue("hello", "banana");
+    string[] dialogue;
+    string[] tags;
+
+    List<string> dialogueList;
+    List<string> tagsList;
+
+    void Awake() {
+        optionsList = new PlayerOptions[] { optionOne, optionTwo, optionThree };
+
+        currentDialogue = new string[] { "Option1", "Option2", "Option3" };
+        currentTags = new string[] { "tag1", "tag2", "tag3" };
+
+        //These are the arrays which contain all the dialogue and tags
+        dialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg"};
+        tags = new string[] { "TagA", "TagB", "TagC", "TagD", "TagE", "TagF", "TagG" };
+
+        //These are the lists which can be manipulated and changed for new dialogue and tags
+        List<string> dialogueList = new List<string>(dialogue);
+        List<string> tagsList = new List<string>(tags);
+
+        for( int i = 0;i < 3;i++ ) {
+            optionsList[i].ChangeDialogue( currentDialogue[i], currentTags[i] );
+        }
     }
 
+    public void DialogueChosen(int buttonNumber) {
+
+        //MoodCheck(optionsList[buttonNumber].GetTag());
+
+        NewDialogue();
+        
+
+        for( int i = 0;i < 3;i++ ) {
+            currentDialogue[i] = dialogueList[Random.Range(0, dialogueList.Count)];
+            currentTags[i] = tagsList[Random.Range(0, dialogueList.Count)];
+            print(i);
+        }
+
+        print(currentDialogue[1]);
+
+
+    }
+
+    //Function used by users to compare tag
     public void MoodCheck(string chosenTag ) {
 
     }
 
     public void NewDialogue() {
-        for(int i = 0; i < 3; i ++ ) {
 
+        optionsList[1].ChangeDialogue("yeah", "yo");
+
+        for( int i = 0;i < 2;i++ ) {
+            optionsList[i].ChangeDialogue(currentDialogue[i], currentTags[i]);
         }
     }
 }
