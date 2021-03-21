@@ -6,28 +6,33 @@ using UnityEngine;
 public class TagsList : MonoBehaviour
 {
     public List<string> tags;
+    public GameMaster gm;
 
-/*    public enum tags
-    {
-        FPS,
-        PvP,
-        Action,
-        StoryDriven,
-        CoOp,
-        Survival,
-        Adventure,
-        Crafting,
-        Sandbox,
-        Competitive
-    }
-*/
+    /*    public enum tags
+        {
+            FPS,
+            PvP,
+            Action,
+            StoryDriven,
+            CoOp,
+            Survival,
+            Adventure,
+            Crafting,
+            Sandbox,
+            Competitive
+        }
+    */
     public string tagOne;
     public string tagTwo;
     public string tagThree;
+
+    public int mood;
+
+    public string dialogueTag;
     // Start is called before the first frame update
     void Awake()
     {
-
+        //dialogueTag = (need a tag to call on in GM)
         tags = new List<string>();
 
         tags.Add("FPS");
@@ -63,7 +68,7 @@ public class TagsList : MonoBehaviour
             print("Tag Three = " + tagThree);
             //tagTextThree.text = tagThree;
             tags.Remove(tagThree);
-          
+
         }
 
     }
@@ -71,8 +76,20 @@ public class TagsList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    //public List<string> userList = new List<string>();
+    public void DialogueCheck()
+    {
+        //need to have a connection to GM,have a tag actually set to call on. Then can check it against the user tags
+
+        if(dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+        {
+            mood = mood + 10;
+        }
+        else
+        {
+            mood = mood - 10;
+        }
+    }
 }

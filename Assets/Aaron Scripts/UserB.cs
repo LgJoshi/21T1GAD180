@@ -77,6 +77,8 @@ public class UserB : MonoBehaviour
             panelDull();
             //lock interaction
         }*/
+
+        tagList.DialogueCheck();
     }
 
     public void GetPic()

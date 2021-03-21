@@ -10,6 +10,8 @@ public class UserA : MonoBehaviour
 
     public TagsList tagList;
 
+    public GameMaster gm;
+
     public string userName;
     public string tagOne;
     public string tagTwo;
@@ -79,6 +81,8 @@ public class UserA : MonoBehaviour
             panelDull();
             //lock interaction
         }*/
+
+        tagList.DialogueCheck();
     }
 
     public void GetPic()

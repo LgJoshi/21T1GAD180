@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 0}
+  tagList: {fileID: 1563855492}
   userName: 
   tagOne: 
   tagTwo: 
@@ -687,7 +687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 0}
+  tagList: {fileID: 1563855492}
+  gm: {fileID: 0}
   userName: 
   tagOne: 
   tagTwo: 
@@ -2950,6 +2951,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541853747}
   m_CullTransparentMesh: 0
+--- !u!1 &1563855491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563855493}
+  - component: {fileID: 1563855492}
+  m_Layer: 0
+  m_Name: TagsList_EmptyObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1563855492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563855491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fc727e1334ed2498134354594bc8b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: []
+  gm: {fileID: 0}
+  tagOne: 
+  tagTwo: 
+  tagThree: 
+  mood: 0
+  dialogueTag: 
+--- !u!4 &1563855493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563855491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 915.30615, y: 488.06656, z: 0.00000004850328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566453055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,7 +4370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 0}
+  tagList: {fileID: 1563855492}
   userName: 
   tagOne: 
   tagTwo: 
