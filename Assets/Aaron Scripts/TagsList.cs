@@ -6,7 +6,6 @@ using UnityEngine;
 public class TagsList : MonoBehaviour
 {
     public List<string> tags;
-    public GameMaster gm;
 
     /*    public enum tags
         {
@@ -51,7 +50,7 @@ public class TagsList : MonoBehaviour
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
     {
 
-        for (int i = 0; i <= 0; i++)
+         for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
             tagOne = tags[Random.Range(0, tags.Count)];

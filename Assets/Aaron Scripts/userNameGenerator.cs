@@ -7,13 +7,13 @@ public class userNameGenerator : MonoBehaviour
 {
     public List<string> userNames;
 
-    string userNameA;
-    string userNameB;
-    string userNameC;
+    public string nameOne;
+    public string nameTwo;
+    public string nameThree;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
         userNames = new List<string>();
@@ -24,37 +24,48 @@ public class userNameGenerator : MonoBehaviour
         userNames.Add("Roger");
         userNames.Add("Diane");
         userNames.Add("Cedric");
-        SetUsername(userNameA, userNameB, userNameC);
-        print(userNameA);
 
-        print(userNameC);
-
+        GetUsername(nameOne, nameTwo, nameThree);
+        GetNameOne();
+        GetNameTwo();
+        GetNameThree();
     }
 
-    public void SetUsername(string newUserNameA, string newUserNameB, string newUserNameC)
+    public void GetUsername(string newNameOne, string newNameTwo, string newNameThree)
     {
-        userNameA = newUserNameA;
-        userNameB = newUserNameB;
-        userNameC = newUserNameC;
 
         for (int i = 0; i <= 0; i++)
         {
-            userNameA = userNames[Random.Range(0, userNames.Count)];
-            print("Username Generator = " + userNameA);
-            userNames.Remove(userNameA);
-            
+            nameOne = userNames[Random.Range(0, userNames.Count)];
+            print("Username Generator = " + nameOne);
+            userNames.Remove(nameOne);
 
-            userNameB = userNames[Random.Range(0, userNames.Count)];
-            print("Username Generator = " + userNameB);
-            userNames.Remove(userNameB);
 
-            userNameC = userNames[Random.Range(0, userNames.Count)];
-            print("Username Generator = " + userNameC);
-            userNames.Remove(userNameC);
+            nameTwo = userNames[Random.Range(0, userNames.Count)];
+            print("Username Generator = " + nameTwo);
+            userNames.Remove(nameTwo);
+
+            nameThree = userNames[Random.Range(0, userNames.Count)];
+            print("Username Generator = " + nameThree);
+            userNames.Remove(nameThree);
             
         }
     }
 
+    public string GetNameOne()
+    {
+        return nameOne;
+    }
+
+    public string GetNameTwo()
+    {
+        return nameTwo;
+    }
+
+    public string GetNameThree()
+    {
+        return nameThree;
+    }
     // Update is called once per frame
     void Update()
     {

@@ -10,8 +10,6 @@ public class UserA : MonoBehaviour
 
     public TagsList tagList;
 
-    public GameMaster gm;
-
     public string userName;
     public string tagOne;
     public string tagTwo;
@@ -39,21 +37,34 @@ public class UserA : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        tags = new List<string>();
+
+        tags.Add("FPS");
+        tags.Add("PvP");
+        tags.Add("Action");
+        tags.Add("Story Driven");
+        tags.Add("Co-Op");
+        tags.Add("Survival");
+        tags.Add("Adventure");
+        tags.Add("Crafting");
+        tags.Add("Sandbox");
+        tags.Add("Competitive");
+
         pic1.enabled = false;
         pic2.enabled = false;
         pic3.enabled = false;
 
         //sets username at start
         userName = "Tim";
-        userNameText.text = "Tim";
+        userNameText.text = userName;
         //executes GetPic on start
         profilePic = (Random.Range(0, 89));
         GetPic();
         //executes GetTags on start
-        tagList.GetTags(tagOne, tagTwo, tagThree);
-        tagTextOne.text = tagList.tagOne;
-        tagTextTwo.text = tagList.tagTwo;
-        tagTextThree.text = tagList.tagThree;
+        GetTags(tagOne, tagTwo, tagThree);
+        tagTextOne.text = tagOne;
+        tagTextTwo.text = tagTwo;
+        tagTextThree.text = tagThree;
     }
 
     private void Update()
@@ -62,7 +73,6 @@ public class UserA : MonoBehaviour
         {
             leave = true;
             panelDull();
-            //make display transparent
             //lock out interaction
         }
 
@@ -111,5 +121,29 @@ public class UserA : MonoBehaviour
         tagTextThree.color = new Color(1, 1, 1, 0.2f);  
     }
 
+    public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
+    {
+
+        for (int i = 0; i <= 0; i++)
+        {
+            //selects tagOne as a random number in the list between 0 & 9, prints to console
+            tagOne = tags[Random.Range(0, tags.Count)];
+            print("Tag One = " + tagOne);
+            //tagTextOne.text = tagOne;
+            tags.Remove(tagOne);
+            //selects tagTwo as a random number in the list between 0 & 9, prints to console
+            tagTwo = tags[Random.Range(0, tags.Count)];
+            print("Tag Two = " + tagTwo);
+            //tagTextTwo.text = tagTwo;
+            tags.Remove(tagTwo);
+            //selects tagThree as a random number in the list between 0 & 9, prints to console
+            tagThree = tags[Random.Range(0, tags.Count)];
+            print("Tag Three = " + tagThree);
+            //tagTextThree.text = tagThree;
+            tags.Remove(tagThree);
+
+        }
+
+    }
 
 }
