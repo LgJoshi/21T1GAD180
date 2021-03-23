@@ -8,8 +8,6 @@ public class UserA : MonoBehaviour
 
     public List<string> tags;
 
-    public TagsList tagList;
-
     public string userName;
     public string tagOne;
     public string tagTwo;
@@ -93,7 +91,6 @@ public class UserA : MonoBehaviour
             //lock interaction
         }*/
 
-        tagList.DialogueCheck();
     }
 
     public void GetPic()
