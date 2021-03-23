@@ -38,10 +38,17 @@ public class GameMaster : MonoBehaviour {
     //the dialogue and tags will be copied from the above arrays to these lists which can then be manipulated
     List<string> dialogueList;
     List<string> tagsList;
+    //List<[]> categoriesList;
 
     //these are the current dialogues and tags for the buttons themselves
     string[] currentDialogue;
     string[] currentTags;
+
+    //This is a getter for the tag that was selected
+    public string selectedTag;
+    public string GetSelectedTag() {
+        return selectedTag;
+    }
 
     //runs when scene is loaded
     void Awake() {
@@ -49,11 +56,22 @@ public class GameMaster : MonoBehaviour {
         optionsList = new PlayerOptions[] { optionOne, optionTwo, optionThree };
 
         //sets placeholder text and tags. will be changed later.
-        currentDialogue = new string[] { "Option1", "Option2", "Option3" };
-        currentTags = new string[] { "tag1", "tag2", "tag3" };
+        currentDialogue = new string[] { " ", " ", " " };
+        currentTags = new string[] { " ", " ", " " };
 
         //These are the arrays which contain all the dialogue and tags
-        dialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg"};
+        actionDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg"};
+        adventureDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        simulationDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        sportsDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        coopDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        survivalDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        fpsDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        pvpDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        sandboxDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        craftingDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        tacticalDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+
         tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-op", "Survival", 
                               "FPS", "PvP", "Sandbox", "Crafting", "Tactical" };
         dialogueCategories = new[] { actionDialogue, adventureDialogue, simulationDialogue, sportsDialogue, 
@@ -82,9 +100,12 @@ public class GameMaster : MonoBehaviour {
     }
 
     public void DialogueChosen(int buttonNumber) {
-        
+
         //takes the tag of the relevant button and puts inputs into MoodCheck function
-        MoodCheck(currentTags[buttonNumber]);
+        selectedTag = currentTags[buttonNumber];
+
+        //Runs an event
+        EventManager.OptionsEvent();
         
         //debugger text
         print("button "+buttonNumber+" pressed");
@@ -101,9 +122,6 @@ public class GameMaster : MonoBehaviour {
     }
 
     //Will be function used by users to compare tag
-    public void MoodCheck(string chosenTag ) {
-        print("Check mood using " + chosenTag + " tag");
-    }
 
     //this function updates text and tag on buttons
     public void NewDialogue() {

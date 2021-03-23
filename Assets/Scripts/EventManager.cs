@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    /*
     //Defines event variable related to the activation of the button
     public delegate void UpdateOptions();
-    public static event UpdateOptions OptionChosen;
+    public static event UpdateOptions OptionEvent;
 
-    static public void OptionsEvent() {
-        OptionChosen();
+    static public void OptionsChosen() {
+        OptionEvent();
     }
-    */
+
 }
