@@ -41,13 +41,14 @@ public class UserB : MonoBehaviour
         tags.Add("FPS");
         tags.Add("PvP");
         tags.Add("Action");
-        tags.Add("Story Driven");
+        tags.Add("Sports");
         tags.Add("Co-Op");
         tags.Add("Survival");
         tags.Add("Adventure");
         tags.Add("Crafting");
         tags.Add("Sandbox");
         tags.Add("Competitive");
+        tags.Add("Tactical");
 
 
         pic1.enabled = false;
@@ -123,7 +124,6 @@ public class UserB : MonoBehaviour
 
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
     {
-
         for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
@@ -141,8 +141,6 @@ public class UserB : MonoBehaviour
             print("Tag Three = " + tagThree);
             //tagTextThree.text = tagThree;
             tags.Remove(tagThree);
-
         }
-
     }
 }

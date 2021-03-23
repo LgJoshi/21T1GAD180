@@ -41,13 +41,14 @@ public class UserC : MonoBehaviour
         tags.Add("FPS");
         tags.Add("PvP");
         tags.Add("Action");
-        tags.Add("Story Driven");
+        tags.Add("Sports");
         tags.Add("Co-Op");
         tags.Add("Survival");
         tags.Add("Adventure");
         tags.Add("Crafting");
         tags.Add("Sandbox");
         tags.Add("Competitive");
+        tags.Add("Tactical");
 
 
         pic1.enabled = false;

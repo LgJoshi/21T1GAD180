@@ -42,13 +42,14 @@ public class UserA : MonoBehaviour
         tags.Add("FPS");
         tags.Add("PvP");
         tags.Add("Action");
-        tags.Add("Story Driven");
+        tags.Add("Sports");
         tags.Add("Co-Op");
         tags.Add("Survival");
         tags.Add("Adventure");
         tags.Add("Crafting");
         tags.Add("Sandbox");
         tags.Add("Competitive");
+        tags.Add("Tactical");
 
         pic1.enabled = false;
         pic2.enabled = false;
@@ -141,7 +142,6 @@ public class UserA : MonoBehaviour
             print("Tag Three = " + tagThree);
             //tagTextThree.text = tagThree;
             tags.Remove(tagThree);
-
         }
 
     }
