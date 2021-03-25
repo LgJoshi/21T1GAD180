@@ -99,9 +99,10 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+    //function that runs when option is chosen
     public void DialogueChosen(int buttonNumber) {
 
-        //takes the tag of the relevant button and puts inputs into MoodCheck function
+        //takes the tag of the relevant button and updates selectedTag to match the tag of the button
         selectedTag = currentTags[buttonNumber];
 
         //Runs an event
@@ -120,8 +121,6 @@ public class GameMaster : MonoBehaviour {
         //this function updates text and tag on buttons (see below)
         NewDialogue();
     }
-
-    //Will be function used by users to compare tag
 
     //this function updates text and tag on buttons
     public void NewDialogue() {
