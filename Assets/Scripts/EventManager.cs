@@ -8,8 +8,10 @@ public class EventManager : MonoBehaviour
     public delegate void UpdateOptions();
     public static event UpdateOptions OptionEvent;
 
-    static public void OptionsChosen() {
-        OptionEvent();
+    static public void OptionsChosen() 
+    {
+        EventManager.OptionEvent();
     }
 
+    
 }

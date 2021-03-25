@@ -106,7 +106,7 @@ public class GameMaster : MonoBehaviour {
         selectedTag = currentTags[buttonNumber];
 
         //Runs an event
-        EventManager.OptionsEvent();
+        EventManager.OptionsChosen();
         
         //debugger text
         print("button "+buttonNumber+" pressed");

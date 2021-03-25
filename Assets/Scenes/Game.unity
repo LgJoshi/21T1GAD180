@@ -258,7 +258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d3e3096b99c8854cb8e36616fa69534, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9f6efb12c7b0f0478c5b27eae9da5e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 0}
+  gm: {fileID: 1831029694}
   userName: 
   tagOne: 
   tagTwo: 
@@ -490,6 +490,7 @@ MonoBehaviour:
   pic2: {fileID: 195599695}
   pic3: {fileID: 841659540}
   profilePic: 0
+  dialogueTag: 
 --- !u!1 &186267341
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +625,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8604e93a5cda89245815d599d3ab1bae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a651e8d378444d54ebddbf8b17509a4d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -687,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 0}
+  gm: {fileID: 1831029694}
   userName: 
   tagOne: 
   tagTwo: 
@@ -701,6 +702,7 @@ MonoBehaviour:
   pic3: {fileID: 671802231}
   profilePic: 0
   mood: 40
+  dialogueTag: 
 --- !u!1 &270877151
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29d40fea968758c4ba1764d0c71f8d09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 417785b7ec9be8e439be7927639679ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1416,7 +1418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 343c2707d881a8b4a8610938244dc166, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c6fc4b4d38f22a340a9ba85d7ed60405, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2189,7 +2191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cbcd784f2ca855b4eab194d15a622b3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7329315875090f942b418a2cbffa4356, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2743,7 +2745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7a01a883171e1fd46883b647aec78f29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65578513d44d02044b07243e0dc1dc7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3234,7 +3236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 39775344db91d534890fc051138a7bdc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d64340d74f19eb498bde9a09a807ddc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3308,7 +3310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a7fe7319bbd468243bb7fa7dae5ce3a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3471f436940d9b428b6f6e3fc0d669b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3556,6 +3558,7 @@ MonoBehaviour:
   optionOne: {fileID: 1848558286}
   optionTwo: {fileID: 1854602554}
   optionThree: {fileID: 777120686}
+  selectedTag: 
 --- !u!1 &1841262723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,7 +4322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 0}
+  gm: {fileID: 1831029694}
   userName: 
   tagOne: 
   tagTwo: 
@@ -4332,6 +4335,7 @@ MonoBehaviour:
   pic2: {fileID: 1673136556}
   pic3: {fileID: 1673136556}
   profilePic: 0
+  dialogueTag: 
 --- !u!1 &1963529602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4469,7 +4473,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e29886fe8b846ca43b53834b2b3758fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e71a24686b8bd1743b69718eec23edb0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UserC : MonoBehaviour
 {
     public List<string> tags;
+    public GameMaster gm;
 
     public string userName;
     public string tagOne;
@@ -29,7 +30,9 @@ public class UserC : MonoBehaviour
     //bools to be used later in development
     bool join = false;
     bool leave = false;
-    int mood = 40;
+    public int mood = 40;
+
+    public string dialogueTag;
 
     // Start is called before the first frame update
     void Awake()
@@ -142,5 +145,29 @@ public class UserC : MonoBehaviour
 
         }
 
+    }
+
+    public void DialogueCheck()
+    {
+        dialogueTag = gm.GetSelectedTag();
+        //need to have a connection to GM,have a tag actually set to call on. Then can check it against the user tags
+
+        if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+        {
+            mood = mood + 10;
+        }
+        else
+        {
+            mood = mood - 10;
+        }
+    }
+
+    void OnEnable()
+    {
+        EventManager.OptionEvent += DialogueCheck;
+    }
+    void OnDisable()
+    {
+        EventManager.OptionEvent -= DialogueCheck;
     }
 }

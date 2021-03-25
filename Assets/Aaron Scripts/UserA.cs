@@ -7,6 +7,7 @@ public class UserA : MonoBehaviour
 {
 
     public List<string> tags;
+    public GameMaster gm;
 
     public string userName;
     public string tagOne;
@@ -31,6 +32,8 @@ public class UserA : MonoBehaviour
     bool join = false;
     bool leave = false;
     public int mood = 40;
+
+    public string dialogueTag;
 
     // Start is called before the first frame update
     void Awake()
@@ -64,6 +67,9 @@ public class UserA : MonoBehaviour
         tagTextOne.text = tagOne;
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
+
+
+
     }
 
     private void Update()
@@ -90,6 +96,8 @@ public class UserA : MonoBehaviour
             panelDull();
             //lock interaction
         }*/
+
+
 
     }
 
@@ -143,4 +151,27 @@ public class UserA : MonoBehaviour
 
     }
 
+    public void DialogueCheck()
+    {
+        dialogueTag = gm.GetSelectedTag();
+        //need to have a connection to GM,have a tag actually set to call on. Then can check it against the user tags
+
+        if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+        {
+            mood = mood + 10;
+        }
+        else
+        {
+            mood = mood - 10;
+        }
+    }
+
+    void OnEnable()
+    {
+        EventManager.OptionEvent += DialogueCheck;
+    }
+    void OnDisable()
+    {
+        EventManager.OptionEvent -= DialogueCheck;
+    }
 }
