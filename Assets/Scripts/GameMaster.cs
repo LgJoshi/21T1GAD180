@@ -38,7 +38,7 @@ public class GameMaster : MonoBehaviour {
     //the dialogue and tags will be copied from the above arrays to these lists which can then be manipulated
     List<string> dialogueList;
     List<string> tagsList;
-    //List<[]> categoriesList;
+    List<string[]> categoriesList;
 
     //these are the current dialogues and tags for the buttons themselves
     string[] currentDialogue;
@@ -60,11 +60,11 @@ public class GameMaster : MonoBehaviour {
         currentTags = new string[] { " ", " ", " " };
 
         //These are the arrays which contain all the dialogue and tags
-        actionDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg"};
-        adventureDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
-        simulationDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
-        sportsDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
-        coopDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
+        actionDialogue = new string[] { "Oh yeah action!", "I love action"};
+        adventureDialogue = new string[] { "Adventure yeah yeah", "Let's go on a journey"};
+        simulationDialogue = new string[] { "Simulation baby", "Fly planes yeah"};
+        sportsDialogue = new string[] { "Kick a ball booyeah", "Sport yeahhhh", "Kick stuff sport yaay"};
+        coopDialogue = new string[] { "Cooperate", "Do the coop", "I love coop" };
         survivalDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
         fpsDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
         pvpDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
@@ -79,8 +79,10 @@ public class GameMaster : MonoBehaviour {
                                      craftingDialogue, tacticalDialogue };
 
         //These are the lists which can be manipulated and changed for new dialogue and tags
-        dialogueList = new List<string>(dialogue);
-        tagsList = new List<string>(tags);
+        //dialogueList = new List<string>(dialogue);
+        //I need to figure out a way to make tagsList & categoriesList only accept the relevant tags
+        tagsList = new List<string> { tags[0], tags[1], tags[2], tags[3], tags[4] };
+        categoriesList = new List<string[]> { dialogueCategories[0], dialogueCategories[1], dialogueCategories[2], dialogueCategories[3], dialogueCategories[4] };
 
         //this "for loop" will activate the ChangeDialogue function on the PlayerOptions scripts on all three buttons.
         //it pulls from the current dialogue and current tags arrays
@@ -106,16 +108,18 @@ public class GameMaster : MonoBehaviour {
         selectedTag = currentTags[buttonNumber];
 
         //Runs an event
-        EventManager.OptionsChosen();
+        //EventManager.OptionsChosen();
         
         //debugger text
         print("button "+buttonNumber+" pressed");
 
         //this "for loop" pulls a random tag and dialogue from the lists and puts them in current dialogue/tag
         for( int i = 0;i < 3;i++ ) {
-            int randomSelect = Random.Range(0, dialogueList.Count);
-            currentDialogue[i] = dialogueList[randomSelect];
-            currentTags[i] = tagsList[randomSelect];
+            int randomSelect = Random.Range(0, categoriesList.Count);
+            List<string> randomTagList = new List<string> { tagsList[randomSelect] };
+            currentTags[i] = randomTagList[Random.Range(0, randomTagList.Count)];
+            List<string> randomDialogueList = new List<string> ( categoriesList[randomSelect] );
+            currentDialogue[i] = randomDialogueList[Random.Range(0, randomDialogueList.Count)];
         }
 
         //this function updates text and tag on buttons (see below)
