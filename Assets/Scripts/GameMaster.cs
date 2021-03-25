@@ -96,8 +96,8 @@ public class GameMaster : MonoBehaviour {
         //debug button. press 1 to see current tags on buttons.
         if( Input.GetKeyDown("1") ) {
             print("Tag 1 is " + currentTags[0]);
-            print("Tag 1 is " + currentTags[1]);
-            print("Tag 1 is " + currentTags[2]);
+            print("Tag 2 is " + currentTags[1]);
+            print("Tag 3 is " + currentTags[2]);
         }
     }
 
