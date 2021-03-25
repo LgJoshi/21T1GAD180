@@ -72,6 +72,7 @@ public class GameMaster : MonoBehaviour {
         craftingDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
         tacticalDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
 
+
         tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-op", "Survival", 
                               "FPS", "PvP", "Sandbox", "Crafting", "Tactical" };
         dialogueCategories = new[] { actionDialogue, adventureDialogue, simulationDialogue, sportsDialogue, 
@@ -108,7 +109,7 @@ public class GameMaster : MonoBehaviour {
         selectedTag = currentTags[buttonNumber];
 
         //Runs an event
-        //EventManager.OptionsChosen();
+        EventManager.OptionsChosen();
         
         //debugger text
         print("button "+buttonNumber+" pressed");
