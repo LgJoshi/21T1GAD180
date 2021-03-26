@@ -97,7 +97,10 @@ public class UserA : MonoBehaviour
             //lock interaction
         }*/
 
-
+        if (Input.GetKeyDown("e"))
+        {
+            panelDull();
+        }
 
     }
 

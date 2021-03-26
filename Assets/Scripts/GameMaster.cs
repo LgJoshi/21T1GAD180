@@ -73,7 +73,7 @@ public class GameMaster : MonoBehaviour {
         tacticalDialogue = new string[] { "Aa", "Bb", "Cc", "Dd", "Ee", "Ff", "Gg" };
 
 
-        tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-op", "Survival", 
+        tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-Op", "Survival", 
                               "FPS", "PvP", "Sandbox", "Crafting", "Tactical" };
         dialogueCategories = new[] { actionDialogue, adventureDialogue, simulationDialogue, sportsDialogue, 
                                      coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
