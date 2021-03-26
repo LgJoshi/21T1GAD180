@@ -303,7 +303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  gm: {fileID: 0}
   tagOne: 
   tagTwo: 
   tagThree: 
@@ -1080,13 +1079,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  tagList: {fileID: 144463356}
-  names: {fileID: 1118694389}
   gm: {fileID: 0}
   userName: 
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 1123843464}
   tagTextOne: {fileID: 526050158}
   tagTextTwo: {fileID: 1264567720}
@@ -1096,6 +1094,7 @@ MonoBehaviour:
   pic3: {fileID: 1602255907}
   profilePic: 0
   mood: 40
+  dialogueTag: 
 --- !u!4 &1110479863
 Transform:
   m_ObjectHideFlags: 0
@@ -1671,12 +1670,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  names: {fileID: 1118694389}
-  tagList: {fileID: 144463356}
+  gm: {fileID: 0}
   userName: 
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 1615500511}
   tagTextOne: {fileID: 1805233943}
   tagTextTwo: {fileID: 1053876389}
@@ -1685,6 +1684,8 @@ MonoBehaviour:
   pic2: {fileID: 468169973}
   pic3: {fileID: 10895238}
   profilePic: 0
+  mood: 40
+  dialogueTag: 
 --- !u!4 &1550369272
 Transform:
   m_ObjectHideFlags: 0
@@ -2300,12 +2301,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags: []
-  names: {fileID: 1118694389}
-  tagList: {fileID: 144463356}
+  gm: {fileID: 0}
   userName: 
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 310679701}
   tagTextOne: {fileID: 1608261650}
   tagTextTwo: {fileID: 123472817}
@@ -2314,6 +2315,8 @@ MonoBehaviour:
   pic2: {fileID: 431317085}
   pic3: {fileID: 431317085}
   profilePic: 0
+  mood: 40
+  dialogueTag: 
 --- !u!4 &1902207221
 Transform:
   m_ObjectHideFlags: 0

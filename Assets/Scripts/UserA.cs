@@ -8,6 +8,7 @@ public class UserA : MonoBehaviour
 
     public List<string> tags;
     public GameMaster gm;
+    public UserJoin userJoin;
 
     public string userName;
     public string tagOne;
@@ -25,6 +26,7 @@ public class UserA : MonoBehaviour
     public Image pic1;
     public Image pic2;
     public Image pic3;
+
 
     //just a random int to determine which profile pic is used
     public int profilePic;
@@ -85,7 +87,7 @@ public class UserA : MonoBehaviour
 
         if (Input.GetKeyDown("e"))
         {
-            panelDull();
+            mood = 100;
         }
 
     }
@@ -149,6 +151,7 @@ public class UserA : MonoBehaviour
         if (mood <= 0)
         {
             leave = true;
+            //changes info box on user panel
             tagTextOne.text = offline;
             Destroy(tagTextTwo);
             Destroy(tagTextThree);
@@ -160,7 +163,7 @@ public class UserA : MonoBehaviour
         {
             join = true;
             panelDull();
-            //add user to call panel
+            userJoin.userJoin(userName);
             //lock out interaction
         }
         if (mood > 0 && mood < 100)
@@ -174,6 +177,15 @@ public class UserA : MonoBehaviour
                 mood = mood - 10;
             }
         }
+    }
+    public string GetUserName()
+    {
+        return userName;
+    }
+
+    public bool GetJoin()
+    {
+        return join;
     }
 
     void OnEnable()
