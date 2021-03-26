@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChooseGamePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 743839031629857852, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 743839031629857853, guid: 7a334172c4e80a94f83f20e84c8a2934,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -44,10 +44,14 @@ public class GameMaster : MonoBehaviour {
     string[] currentDialogue;
     string[] currentTags;
 
-    //This is a getter for the tag that was selected
+    //This is a getter for the tag and dialogue that was selected
     public string selectedTag;
     public string GetSelectedTag() {
         return selectedTag;
+    }
+    public string selectedDialogue;
+    public string GetSelectedDialogue() {
+        return selectedDialogue;
     }
 
     //runs when scene is loaded
@@ -72,23 +76,11 @@ public class GameMaster : MonoBehaviour {
         craftingDialogue = new string[] { "There's lots of crafting options to unlock!", "I've collected a lot of materials for crafting.", "I found some new things to craft with!" };
         tacticalDialogue = new string[] { "Let's try this new strategy.", "I reckon we can figure out that section.", "We can practice that tactic we learned." };
 
-
         tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-Op", "Survival", 
                               "FPS", "PvP", "Sandbox", "Crafting", "Tactical" };
         dialogueCategories = new[] { actionDialogue, adventureDialogue, simulationDialogue, sportsDialogue, 
                                      coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
                                      craftingDialogue, tacticalDialogue };
-
-        tagsList = new List<string> { tags[0], tags[1], tags[2], tags[3], tags[4] };
-        categoriesList = new List<string[]> { dialogueCategories[0], dialogueCategories[1], dialogueCategories[2], dialogueCategories[3], dialogueCategories[4] };
-
-        for( int i = 0;i < 3;i++ ) {
-            int randomSelect = Random.Range(0, categoriesList.Count);
-            List<string> randomTagList = new List<string> { tagsList[randomSelect] };
-            currentTags[i] = randomTagList[Random.Range(0, randomTagList.Count)];
-            List<string> randomDialogueList = new List<string>(categoriesList[randomSelect]);
-            currentDialogue[i] = randomDialogueList[Random.Range(0, randomDialogueList.Count)];
-        }
     }
 
     private void Update() {
@@ -101,7 +93,10 @@ public class GameMaster : MonoBehaviour {
     }
     //int tagOne, int tagTwo, int tagThree, int tagFour, int tagFive
     public void GameSetup( string tagInput ) {
-        //These are the lists which can be manipulated and changed for new dialogue and tags
+        string[] values = tagInput.Split(',');
+        int[] convertedValues = System.Array.ConvertAll<string, int>(values, int.Parse);
+        
+        /*
         string temp = tagInput.Substring(0, 1);
         int tagOne = int.Parse(temp);
         temp = tagInput.Substring(1, 1);
@@ -112,9 +107,14 @@ public class GameMaster : MonoBehaviour {
         int tagFour = int.Parse(temp);
         temp = tagInput.Substring(4, 1);
         int tagFive = int.Parse(temp);
+        */
 
-        tagsList = new List<string> { tags[tagOne], tags[tagTwo], tags[tagThree], tags[tagFour], tags[tagFive] };
-        categoriesList = new List<string[]> { dialogueCategories[tagOne], dialogueCategories[tagTwo], dialogueCategories[tagThree], dialogueCategories[tagFour], dialogueCategories[tagFive] };
+        //These are the lists which can be manipulated and changed for new dialogue and tags
+        tagsList = new List<string> { tags[convertedValues[0]], tags[convertedValues[1]], tags[convertedValues[2]], tags[convertedValues[3]], tags[convertedValues[4]] };
+        categoriesList = new List<string[]> { dialogueCategories[convertedValues[0]], dialogueCategories[convertedValues[1]], dialogueCategories[convertedValues[2]], dialogueCategories[convertedValues[3]], dialogueCategories[convertedValues[4]] };
+
+        NewDialogue();
+        UpdateDialogue();
     }
 
     //function that runs when option is chosen
@@ -127,23 +127,26 @@ public class GameMaster : MonoBehaviour {
         EventManager.OptionsChosen();
         
         //debugger text
-        print("button "+buttonNumber+" pressed");
+        print("button "+(buttonNumber+1)+" pressed");
 
+        NewDialogue();
+        UpdateDialogue();
+    }
+
+    //This function randomly selects from the list of available dialogue and updates currentTags and currentDialogue to match it
+    void NewDialogue() {
         //this "for loop" pulls a random tag and dialogue from the lists and puts them in current dialogue/tag
         for( int i = 0;i < 3;i++ ) {
             int randomSelect = Random.Range(0, categoriesList.Count);
             List<string> randomTagList = new List<string> { tagsList[randomSelect] };
             currentTags[i] = randomTagList[Random.Range(0, randomTagList.Count)];
-            List<string> randomDialogueList = new List<string> ( categoriesList[randomSelect] );
+            List<string> randomDialogueList = new List<string>(categoriesList[randomSelect]);
             currentDialogue[i] = randomDialogueList[Random.Range(0, randomDialogueList.Count)];
         }
-
-        //this function updates text and tag on buttons (see below)
-        NewDialogue();
     }
 
     //this function updates text and tag on buttons
-    public void NewDialogue() {
+    void UpdateDialogue() {
         
         //goes through each PlayerOptions script and changes relevant dialogue and tag
         for( int i = 0;i < 3;i++ ) {
