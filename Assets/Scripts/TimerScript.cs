@@ -16,6 +16,11 @@ public class TimerScript : MonoBehaviour
         gameRunning = false;
     }
 
+    void Awake() {
+        this.GetComponent<Image>().enabled = false;
+        myText.text = " ";
+    }
+
     //starts timer when a game is chosen
     void OnEnable() {
         EventManager.StartEvent += TimerStart;
@@ -24,6 +29,7 @@ public class TimerScript : MonoBehaviour
         EventManager.StartEvent -= TimerStart;
     }
     void TimerStart() {
+        this.GetComponent<Image>().enabled = true;
         gameRunning = true;
     }
 
@@ -32,12 +38,12 @@ public class TimerScript : MonoBehaviour
     {
         if( gameRunning ) {
             timer -= Time.deltaTime;
+            myText.text = string.Format("{0:00.00}", timer);
             if( timer <= 0 ) {
                 gameRunning = false;
                 EventManager.GameEnded();
-                myText.text = string.Format("{0:00}", timer);
+                myText.text = "0";
             }
-            myText.text = string.Format("{0:00.00}", timer);
         }
     }
 

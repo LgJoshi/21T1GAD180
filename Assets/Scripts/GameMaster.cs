@@ -53,6 +53,10 @@ public class GameMaster : MonoBehaviour {
     public string GetSelectedDialogue() {
         return selectedDialogue;
     }
+    public int selectedGame;
+    public int GetSelectedGame() {
+        return selectedGame;
+    }
 
     //runs when scene is loaded
     void Awake() {
@@ -95,10 +99,11 @@ public class GameMaster : MonoBehaviour {
     public void GameSetup( string tagInput ) {
         string[] values = tagInput.Split(',');
         int[] convertedValues = System.Array.ConvertAll<string, int>(values, int.Parse);
+        selectedGame = convertedValues[0];
 
         //These are the lists which can be manipulated and changed for new dialogue and tags
-        tagsList = new List<string> { tags[convertedValues[0]], tags[convertedValues[1]], tags[convertedValues[2]], tags[convertedValues[3]], tags[convertedValues[4]] };
-        categoriesList = new List<string[]> { dialogueCategories[convertedValues[0]], dialogueCategories[convertedValues[1]], dialogueCategories[convertedValues[2]], dialogueCategories[convertedValues[3]], dialogueCategories[convertedValues[4]] };
+        tagsList = new List<string> { tags[convertedValues[1]], tags[convertedValues[2]], tags[convertedValues[3]], tags[convertedValues[4]], tags[convertedValues[5]] };
+        categoriesList = new List<string[]> { dialogueCategories[convertedValues[1]], dialogueCategories[convertedValues[2]], dialogueCategories[convertedValues[3]], dialogueCategories[convertedValues[4]], dialogueCategories[convertedValues[5]] };
 
         NewDialogue();
         UpdateDialogue();
