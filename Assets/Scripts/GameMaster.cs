@@ -79,13 +79,15 @@ public class GameMaster : MonoBehaviour {
                                      coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
                                      craftingDialogue, tacticalDialogue };
 
-        
+        tagsList = new List<string> { tags[0], tags[1], tags[2], tags[3], tags[4] };
+        categoriesList = new List<string[]> { dialogueCategories[0], dialogueCategories[1], dialogueCategories[2], dialogueCategories[3], dialogueCategories[4] };
 
-        //this "for loop" will activate the ChangeDialogue function on the PlayerOptions scripts on all three buttons.
-        //it pulls from the current dialogue and current tags arrays
-        //this is used multiple times in this script
         for( int i = 0;i < 3;i++ ) {
-            optionsList[i].ChangeDialogue( currentDialogue[i], currentTags[i] );
+            int randomSelect = Random.Range(0, categoriesList.Count);
+            List<string> randomTagList = new List<string> { tagsList[randomSelect] };
+            currentTags[i] = randomTagList[Random.Range(0, randomTagList.Count)];
+            List<string> randomDialogueList = new List<string>(categoriesList[randomSelect]);
+            currentDialogue[i] = randomDialogueList[Random.Range(0, randomDialogueList.Count)];
         }
     }
 
