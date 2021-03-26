@@ -102,6 +102,7 @@ public class GameMaster : MonoBehaviour {
 
         NewDialogue();
         UpdateDialogue();
+        EventManager.GameStarted();
     }
 
     //function that runs when option is chosen
@@ -135,7 +136,6 @@ public class GameMaster : MonoBehaviour {
 
     //this function updates text and tag on buttons
     void UpdateDialogue() {
-        
         //goes through each PlayerOptions script and changes relevant dialogue and tag
         for( int i = 0;i < 3;i++ ) {
             optionsList[i].ChangeDialogue(currentDialogue[i], currentTags[i]);

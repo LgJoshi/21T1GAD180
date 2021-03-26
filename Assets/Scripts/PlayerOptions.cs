@@ -19,4 +19,15 @@ public class PlayerOptions : MonoBehaviour
         myText.text = newText;
         myTag = newTag;
     }
+
+    void OnEnable() {
+        EventManager.EndEvent += DisableSelf;
+    }
+    void OnDisable() {
+        EventManager.EndEvent -= DisableSelf;
+    }
+
+    public void DisableSelf() {
+        gameObject.SetActive(false);
+    }
 }
