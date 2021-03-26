@@ -79,11 +79,7 @@ public class GameMaster : MonoBehaviour {
                                      coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
                                      craftingDialogue, tacticalDialogue };
 
-        //These are the lists which can be manipulated and changed for new dialogue and tags
-        //dialogueList = new List<string>(dialogue);
-        //I need to figure out a way to make tagsList & categoriesList only accept the relevant tags
-        tagsList = new List<string> { tags[0], tags[1], tags[2], tags[3], tags[4] };
-        categoriesList = new List<string[]> { dialogueCategories[0], dialogueCategories[1], dialogueCategories[2], dialogueCategories[3], dialogueCategories[4] };
+        
 
         //this "for loop" will activate the ChangeDialogue function on the PlayerOptions scripts on all three buttons.
         //it pulls from the current dialogue and current tags arrays
@@ -102,7 +98,13 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-    //function that runs when option is chosen
+    public void GameSetup( int tagOne, int tagTwo, int tagThree, int tagFour, int tagFive ) {
+        //These are the lists which can be manipulated and changed for new dialogue and tags
+        tagsList = new List<string> { tags[tagOne], tags[tagTwo], tags[tagThree], tags[tagFour], tags[tagFive] };
+        categoriesList = new List<string[]> { dialogueCategories[tagOne], dialogueCategories[tagTwo], dialogueCategories[tagThree], dialogueCategories[tagFour], dialogueCategories[tagFive] };
+    }
+
+        //function that runs when option is chosen
     public void DialogueChosen(int buttonNumber) {
 
         //takes the tag of the relevant button and updates selectedTag to match the tag of the button
