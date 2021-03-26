@@ -99,14 +99,25 @@ public class GameMaster : MonoBehaviour {
             print("Tag 3 is " + currentTags[2]);
         }
     }
-
-    public void GameSetup( int tagOne, int tagTwo, int tagThree, int tagFour, int tagFive ) {
+    //int tagOne, int tagTwo, int tagThree, int tagFour, int tagFive
+    public void GameSetup( string tagInput ) {
         //These are the lists which can be manipulated and changed for new dialogue and tags
+        string temp = tagInput.Substring(0, 1);
+        int tagOne = int.Parse(temp);
+        temp = tagInput.Substring(1, 1);
+        int tagTwo = int.Parse(temp);
+        temp = tagInput.Substring(2, 1);
+        int tagThree = int.Parse(temp);
+        temp = tagInput.Substring(3, 1);
+        int tagFour = int.Parse(temp);
+        temp = tagInput.Substring(4, 1);
+        int tagFive = int.Parse(temp);
+
         tagsList = new List<string> { tags[tagOne], tags[tagTwo], tags[tagThree], tags[tagFour], tags[tagFive] };
         categoriesList = new List<string[]> { dialogueCategories[tagOne], dialogueCategories[tagTwo], dialogueCategories[tagThree], dialogueCategories[tagFour], dialogueCategories[tagFive] };
     }
 
-        //function that runs when option is chosen
+    //function that runs when option is chosen
     public void DialogueChosen(int buttonNumber) {
 
         //takes the tag of the relevant button and updates selectedTag to match the tag of the button
