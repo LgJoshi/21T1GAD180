@@ -72,20 +72,7 @@ public class UserC : MonoBehaviour
 
     private void Update()
     {
-        if (mood == 0)
-        {
-            leave = true;
-            panelDull();
-            //lock out interaction
-        }
-
-        if (mood == 100)
-        {
-            join = true;
-            panelDull();
-            //add user to call panel
-            //lock out interaction
-        }
+        
 
         //need to adjust below once gameTimer is added
         /*if (mood <= 99 && gameTimer == 0)
@@ -152,13 +139,31 @@ public class UserC : MonoBehaviour
         dialogueTag = gm.GetSelectedTag();
         //need to have a connection to GM,have a tag actually set to call on. Then can check it against the user tags
 
-        if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+        if (mood == 0)
         {
-            mood = mood + 10;
+            leave = true;
+            panelDull();
+            //lock out interaction
         }
-        else
+
+        if (mood == 100)
         {
-            mood = mood - 10;
+            join = true;
+            panelDull();
+            //add user to call panel
+            //lock out interaction
+        }
+
+        if (mood > 0 && mood < 100)
+        {
+            if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+            {
+                mood = mood + 10;
+            }
+            else
+            {
+                mood = mood - 10;
+            }
         }
     }
 
