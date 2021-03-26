@@ -95,19 +95,6 @@ public class GameMaster : MonoBehaviour {
     public void GameSetup( string tagInput ) {
         string[] values = tagInput.Split(',');
         int[] convertedValues = System.Array.ConvertAll<string, int>(values, int.Parse);
-        
-        /*
-        string temp = tagInput.Substring(0, 1);
-        int tagOne = int.Parse(temp);
-        temp = tagInput.Substring(1, 1);
-        int tagTwo = int.Parse(temp);
-        temp = tagInput.Substring(2, 1);
-        int tagThree = int.Parse(temp);
-        temp = tagInput.Substring(3, 1);
-        int tagFour = int.Parse(temp);
-        temp = tagInput.Substring(4, 1);
-        int tagFive = int.Parse(temp);
-        */
 
         //These are the lists which can be manipulated and changed for new dialogue and tags
         tagsList = new List<string> { tags[convertedValues[0]], tags[convertedValues[1]], tags[convertedValues[2]], tags[convertedValues[3]], tags[convertedValues[4]] };
@@ -122,6 +109,7 @@ public class GameMaster : MonoBehaviour {
 
         //takes the tag of the relevant button and updates selectedTag to match the tag of the button
         selectedTag = currentTags[buttonNumber];
+        selectedDialogue = currentDialogue[buttonNumber];
 
         //Runs an event
         EventManager.OptionsChosen();
