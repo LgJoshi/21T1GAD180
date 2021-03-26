@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 743839031629857852, guid: 7a334172c4e80a94f83f20e84c8a2934,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 743839031629857853, guid: 7a334172c4e80a94f83f20e84c8a2934,
         type: 3}
@@ -706,6 +706,7 @@ MonoBehaviour:
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 787177000}
   tagTextOne: {fileID: 186267343}
   tagTextTwo: {fileID: 700718626}
@@ -918,6 +919,7 @@ MonoBehaviour:
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 1847874766}
   tagTextOne: {fileID: 1541853749}
   tagTextTwo: {fileID: 672639156}
@@ -1253,6 +1255,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1268,6 +1271,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa5bf51c519a304387176d84d86df52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 794778636}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2361,6 +2377,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787176998}
   m_CullTransparentMesh: 0
+--- !u!1 &794778636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 743839031629857852, guid: 7a334172c4e80a94f83f20e84c8a2934,
+    type: 3}
+  m_PrefabInstance: {fileID: 5492359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &841659538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,6 +3813,7 @@ MonoBehaviour:
   optionTwo: {fileID: 1854602554}
   optionThree: {fileID: 777120686}
   selectedTag: 
+  selectedDialogue: 
 --- !u!1 &1841262723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,6 +4582,7 @@ MonoBehaviour:
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 1449865302}
   tagTextOne: {fileID: 270877153}
   tagTextTwo: {fileID: 106854846}
