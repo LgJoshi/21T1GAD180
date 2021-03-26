@@ -12,6 +12,7 @@ public class UserC : MonoBehaviour
     public string tagOne;
     public string tagTwo;
     public string tagThree;
+    public string offline;
 
     //text boxes for name/tags
     public Text userNameText;
@@ -68,6 +69,7 @@ public class UserC : MonoBehaviour
         tagTextOne.text = tagOne;
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
+        offline = "User is offline";
     }
 
     private void Update()
@@ -142,6 +144,9 @@ public class UserC : MonoBehaviour
         if (mood == 0)
         {
             leave = true;
+            tagTextOne.text = offline;
+            Destroy(tagTextTwo);
+            Destroy(tagTextThree);
             panelDull();
             //lock out interaction
         }

@@ -12,12 +12,15 @@ public class UserB : MonoBehaviour
     public string tagOne;
     public string tagTwo;
     public string tagThree;
+    public string offline;
 
     //text boxes for names/tags
     public Text userNameText;
     public Text tagTextOne;
     public Text tagTextTwo;
     public Text tagTextThree;
+   
+    
 
     //profile pic locations
     public Image pic1;
@@ -67,6 +70,8 @@ public class UserB : MonoBehaviour
         tagTextOne.text = tagOne;
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
+        offline = "User is offline";
+
     }
 
     private void Update()
@@ -135,6 +140,25 @@ public class UserB : MonoBehaviour
     {
         dialogueTag = gm.GetSelectedTag();
         //need to have a connection to GM,have a tag actually set to call on. Then can check it against the user tags
+
+        if (mood == 0)
+        {
+            leave = true;
+            tagTextOne.text = offline;
+            Destroy(tagTextTwo);
+            Destroy(tagTextThree);
+            panelDull();
+            //lock out interaction
+        }
+
+        if (mood == 100)
+        {
+            join = true;
+            panelDull();
+            //add user to call panel
+            //lock out interaction
+        }
+
         if (mood > 0 && mood < 100)
         {
             if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
