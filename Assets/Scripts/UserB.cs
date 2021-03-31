@@ -9,7 +9,7 @@ public class UserB : MonoBehaviour
     public GameMaster gm;
     public UserJoin userJoin;
 
-    public string userName;
+    public string myUserName;
     public string tagOne;
     public string tagTwo;
     public string tagThree;
@@ -20,8 +20,6 @@ public class UserB : MonoBehaviour
     public Text tagTextOne;
     public Text tagTextTwo;
     public Text tagTextThree;
-   
-    
 
     //profile pic locations
     public Image pic1;
@@ -33,7 +31,6 @@ public class UserB : MonoBehaviour
 
     //bools to be used later in development
     bool join = false;
-    bool leave = false;
     public int mood = 40;
 
     public string dialogueTag;
@@ -41,6 +38,7 @@ public class UserB : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //creates list of tags
         tags = new List<string>();
 
         tags.Add("FPS");
@@ -55,17 +53,19 @@ public class UserB : MonoBehaviour
         tags.Add("Competitive");
         tags.Add("Tactical");
 
-
+        //hides profiles pics until further notice
         pic1.enabled = false;
         pic2.enabled = false;
         pic3.enabled = false;
 
         //sets username at start
-        userName = "Jenny";
-        userNameText.text = userName;
+        myUserName = "Jenny";
+        userNameText.text = myUserName;
+
         //executes GetPic on start
         profilePic = (Random.Range(0, 89));
         GetPic();
+
         //executes GetTags on start
         GetTags(tagOne, tagTwo, tagThree);
         tagTextOne.text = tagOne;
@@ -77,23 +77,29 @@ public class UserB : MonoBehaviour
 
     private void Update()
     {
-       
-
-        //need to adjust below once gameTimer is added
-        /*if (mood <= 99 && gameTimer == 0)
+        //if mood reaches 100, joins call
+        if (mood == 100)
         {
-            leave = true;
+            join = true;
+            userJoin.userJoin();
+            /*userJoin.userName = myUserName;
+            userJoin.GetUsername();*/
             panelDull();
-            //lock interaction
-        }*/
-
-        if(Input.GetKeyDown("r"))
-        {
-            mood = 100;
+            //lock out interaction
         }
 
+        //if mood reaches 0, leaves chat
+        if (mood == 0)
+        {
+            //changes info box on user panel
+            tagTextOne.text = offline;
+            Destroy(tagTextTwo);
+            Destroy(tagTextThree);
+            panelDull();
+        }
     }
 
+    //sets profile pic based on random number
     public void GetPic()
     {
         if (profilePic <= 29)
@@ -112,6 +118,7 @@ public class UserB : MonoBehaviour
         }
     }
 
+    //dulls text to signify user not interactable
     void panelDull()
     {
         userNameText.color = new Color(1, 1, 1, 0.2f);
@@ -120,6 +127,7 @@ public class UserB : MonoBehaviour
         tagTextThree.color = new Color(1, 1, 1, 0.2f);
     }
 
+    //gets user's tags
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
     {
         for (int i = 0; i <= 0; i++)
@@ -142,36 +150,20 @@ public class UserB : MonoBehaviour
         }
     }
 
+    //compares dialogue tag to user tags
     public void DialogueCheck()
     {
         dialogueTag = gm.GetSelectedTag();
-        //need to have a connection to GM,have a tag actually set to call on. Then can check it against the user tags
 
-        if (mood == 0)
-        {
-            leave = true;
-            //changes info box on user panel
-            tagTextOne.text = offline;
-            Destroy(tagTextTwo);
-            Destroy(tagTextThree);
-            panelDull();
-            //lock out interaction
-        }
-
-        if (mood == 100)
-        {
-            join = true;
-            panelDull();
-            userJoin.userJoin(userName);
-            //lock out interaction
-        }
-
+        //if mood is between 0 and 100, check will be made
         if (mood > 0 && mood < 100)
         {
+            //if the dialogue tag matches any of the user tags, mood increased by 10
             if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
             {
                 mood = mood + 10;
             }
+            //if no match found, mood decreased by 10
             else
             {
                 mood = mood - 10;
@@ -179,16 +171,19 @@ public class UserB : MonoBehaviour
         }
     }
 
-    public string GetUserName()
-    {
-        return userName;
-    }
-
+    //returns join bool status
     public bool GetJoin()
     {
         return join;
     }
 
+    //returns user's name
+    public string GetMyName()
+    {
+        return myUserName;
+    }
+
+    //subs and unsubs from dialogue check event
     void OnEnable()
     {
         EventManager.OptionEvent += DialogueCheck;

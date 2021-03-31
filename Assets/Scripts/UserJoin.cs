@@ -11,37 +11,59 @@ public class UserJoin : MonoBehaviour
     public UserB userB;
     public UserC userC;
 
-    public string userName1;
-    public string userName2;
-    public string userName3;
+    public string userNameA;
+    public string userNameB;
+    public string userNameC;
 
-    // Start is called before the first frame update
+    public List<string> stuff;
+    public int listLength;
+    public int unCheck;
+
     void Start()
     {
-        userName1 = userA.GetUserName();
-        userName2 = userB.GetUserName();
-        userName3 = userC.GetUserName();       
+        List<string> stuff = new List<string>();
+       
+        userNameA = userA.GetMyName();
+        userNameB = userB.GetMyName();
+        userNameC = userC.GetMyName();     
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
 
-    public void userJoin(string userName)
+    public void userJoin()
     {
-        if (userA.GetJoin() == true)
-        {
-            userNameJoin.text = userName1;
-        }
-        if(userB.GetJoin() == true)
-        {
-            userNameJoin.text += "\n" + userName2;
-        }
-        if(userC.GetJoin() == true)
-        {
-            userNameJoin.text += "\n" + userName3;
-        }
+
+            if (userA.GetJoin() == true && !stuff.Contains("Tim"))
+            {
+                stuff.Add(userNameA);
+                CheckStuff();
+            }
+            //else
+            if (userB.GetJoin() == true && !stuff.Contains("Jenny"))
+            {
+                stuff.Add(userNameB);
+                CheckStuff();
+            }
+            //else
+            if (userC.GetJoin() == true && !stuff.Contains("Sam"))
+            {
+                stuff.Add(userNameC);
+                CheckStuff();
+            }
+
+        
+
+    }   
+
+    void CheckStuff()
+    {
+        string text = string.Join("\n", stuff.ToArray());
+        userNameJoin.text = (text);
     }
+
 
 }
