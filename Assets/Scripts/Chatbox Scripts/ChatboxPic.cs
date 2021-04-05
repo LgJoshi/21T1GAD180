@@ -9,16 +9,16 @@ public class ChatboxPic : MonoBehaviour
     public Sprite[] userPics;
     SpriteRenderer spriteRenderer;
 
+    int userASprite;
+    int userBSprite;
+    int userCSprite;
+
     float chatDelay;
 
     // Start is called before the first frame update
     void Awake()
     {
-        chatDelay = 0.5;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        for( int i = 0;i < 3;i++ ) {
-            Instantiate(prefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity);
-        }
+        chatDelay = 1;
     }
 
     // Update is called once per frame
