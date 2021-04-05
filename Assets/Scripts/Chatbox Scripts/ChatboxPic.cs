@@ -24,10 +24,12 @@ public class ChatboxPic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if( Input.GetKeyDown("2") ) {
+            StartCoroutine(ScrollPic());
+        }
     }
 
-    IEnumerator PlayText() {
+    IEnumerator ScrollPic() {
         foreach( Sprite s in userPics ) {
             spriteRenderer.sprite = s;
             yield return new WaitForSeconds(chatDelay);
