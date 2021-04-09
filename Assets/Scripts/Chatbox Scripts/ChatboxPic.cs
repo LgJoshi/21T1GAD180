@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChatboxPic : MonoBehaviour
 {
@@ -10,11 +11,9 @@ public class ChatboxPic : MonoBehaviour
     public Sprite[] userPics;
     SpriteRenderer spriteRenderer;
 
-    /*
-    int userASprite;
-    int userBSprite;
-    int userCSprite;
-    */
+    Image userAImage;
+    Image userBImage;
+    Image userCImage;
 
     float timeSpan;
     float chatDelay;
@@ -33,9 +32,18 @@ public class ChatboxPic : MonoBehaviour
 
         chatDelay = timeSpan/4;
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-    }
 
-    // Update is called once per frame
+        /*
+        userAImage = GameObject.Find("UserA").GetComponentInChildren<Image>();
+        userBImage = GameObject.Find("UserB").GetComponentInChildren<Image>();
+        userCImage = GameObject.Find("UserC").GetComponentInChildren<Image>();
+
+        userPics[0] = userAImage.sprite;
+        userPics[1] = userBImage.sprite;
+        userPics[2] = userCImage.sprite;
+        */
+}
+
     void Update()
     {
         if( Input.GetKeyDown("2") ) {
@@ -76,5 +84,6 @@ public class ChatboxPic : MonoBehaviour
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = false;
         }
+
     }
 }

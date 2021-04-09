@@ -9,18 +9,12 @@ public class ChatboxChat : MonoBehaviour
     public int historyNumber;
     int textSelect;
 
-    SpriteRenderer spriteRenderer;
+    Image myImage;
     TextMeshProUGUI myText;
 
     string[] positiveResponse;
     string[] negativeResponse;
     string[] textHistory;
-
-    /*
-    int userASprite;
-    int userBSprite;
-    int userCSprite;
-    */
 
     float timeSpan;
     float chatDelay;
@@ -38,7 +32,7 @@ public class ChatboxChat : MonoBehaviour
         timeSpan = 4;
 
         chatDelay = timeSpan / 4;
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        myImage = this.GetComponent<Image>();
         myText = GetComponentInChildren<TextMeshProUGUI>();
 
         positiveResponse = new string[] { "111111111111111", "22222222222222", "333333333333333", "44444444444" };
@@ -46,6 +40,8 @@ public class ChatboxChat : MonoBehaviour
         negativeResponse = new string[] { "Meh", "I dunno" };
         myText.text = " ";
         textHistory = new string[] { " ", " ", " ", " " };
+
+        
     }
 
     // Update is called once per frame
@@ -71,7 +67,7 @@ public class ChatboxChat : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         if( historyNumber == 3 ) {
-            spriteRenderer.enabled = true;
+            myImage.enabled = true;
             myText.enabled = true;
         }
 
@@ -90,7 +86,7 @@ public class ChatboxChat : MonoBehaviour
             textSelect = 0;
         }
         if( historyNumber == 3 ) {
-            spriteRenderer.enabled = false;
+            myImage.enabled = false;
             myText.enabled = false;
         }
     }
