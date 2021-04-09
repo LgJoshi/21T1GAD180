@@ -9,7 +9,7 @@ public class DialogueTyping : MonoBehaviour
     public TextMeshProUGUI myText;
     public GameMaster gameMaster;
     string myDialogue;
-    public float typingDelay;
+    float typingDelay;
 
     public TextMeshProUGUI gameOneText;
     public TextMeshProUGUI gameTwoText;
@@ -35,6 +35,7 @@ public class DialogueTyping : MonoBehaviour
     void StartPlayText() {
         this.GetComponent<Image>().enabled = true;
         myDialogue = "Who wants to play " + textArray[gameMaster.GetSelectedGame()].text + "?";
+        typingDelay = 3 / myDialogue.Length;
         StartCoroutine(PlayText());
     }
 
@@ -42,6 +43,7 @@ public class DialogueTyping : MonoBehaviour
         StopCoroutine(PlayText());
         myDialogue = gameMaster.GetSelectedDialogue();
         myText.text = " ";
+        typingDelay = 4 / myDialogue.Length;
         StartCoroutine(PlayText());
     }
 

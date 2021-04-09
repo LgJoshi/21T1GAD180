@@ -7,12 +7,27 @@ using TMPro;
 public class PlayerOptions : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TextMeshProUGUI myText;
+    TextMeshProUGUI myText;
+    Button myButton;
+    Image myImage;
 
+    bool selected;
     string myTag;
 
-    public string GetTag() {
-        return myTag;
+    void OnEnable() {
+        EventManager.EndEvent += DisableSelf;
+        EventManager.OptionEvent += TempDisable;
+    }
+    void OnDisable() {
+        EventManager.EndEvent -= DisableSelf;
+        EventManager.OptionEvent -= TempDisable;
+    }
+    void Awake() {
+        myText = GetComponentInChildren<TextMeshProUGUI>();
+        myButton = GetComponent<Button>();
+        myImage = GetComponent<Image>();
+
+        selected = false;
     }
 
     public void ChangeDialogue(string newText, string newTag) {
@@ -20,11 +35,34 @@ public class PlayerOptions : MonoBehaviour
         myTag = newTag;
     }
 
-    void OnEnable() {
-        EventManager.EndEvent += DisableSelf;
+    public void ImSelected() {
+        selected = true;
     }
-    void OnDisable() {
-        EventManager.EndEvent -= DisableSelf;
+
+    void TempDisable() {
+        StartCoroutine(PlayText());
+    }
+
+    IEnumerator PlayText() {
+        if( !selected ) {
+            myImage.enabled = false;
+            myText.enabled = false;
+        }
+        myButton.enabled = false;
+
+        yield return new WaitForSeconds(2);
+
+        myButton.enabled = false;
+        myImage.enabled = false;
+        myText.enabled = false;
+
+        //time before buttons reappear
+        yield return new WaitForSeconds(4);
+
+        myButton.enabled = true;
+        myImage.enabled = true;
+        myText.enabled = true;
+        selected = false;
     }
 
     public void DisableSelf() {

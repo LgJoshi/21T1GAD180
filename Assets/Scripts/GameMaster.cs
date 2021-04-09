@@ -123,8 +123,9 @@ public class GameMaster : MonoBehaviour {
         //debugger text
         print("button "+(buttonNumber+1)+" pressed");
 
+        
         NewDialogue();
-        UpdateDialogue();
+        DelayUpdate();
     }
 
     //This function randomly selects from the list of available dialogue and updates currentTags and currentDialogue to match it
@@ -137,6 +138,14 @@ public class GameMaster : MonoBehaviour {
             List<string> randomDialogueList = new List<string>(categoriesList[randomSelect]);
             currentDialogue[i] = randomDialogueList[Random.Range(0, randomDialogueList.Count)];
         }
+    }
+
+    void DelayUpdate() {
+        StartCoroutine(DelayDialogue());
+    }
+    IEnumerator DelayDialogue() {
+        yield return new WaitForSeconds(3);
+        UpdateDialogue();
     }
 
     //this function updates text and tag on buttons
