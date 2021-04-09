@@ -26,10 +26,11 @@ public class ChatboxPic : MonoBehaviour
         EventManager.OptionEvent -= ChatPicScroll;
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
+        //if this is changed, make sure it matches chatboxchat
         timeSpan = 4;
+
         chatDelay = timeSpan/4;
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
@@ -50,6 +51,7 @@ public class ChatboxPic : MonoBehaviour
 
     IEnumerator ScrollPic() {
 
+        //if this is changed, make sure it matches chatboxchat and playeroptions
         yield return new WaitForSeconds(2);
 
         if( historyNumber == 3 ) {

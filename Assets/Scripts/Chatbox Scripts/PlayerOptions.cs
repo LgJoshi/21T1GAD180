@@ -6,7 +6,6 @@ using TMPro;
 
 public class PlayerOptions : MonoBehaviour
 {
-    // Start is called before the first frame update
     TextMeshProUGUI myText;
     Button myButton;
     Image myImage;
@@ -49,14 +48,15 @@ public class PlayerOptions : MonoBehaviour
             myText.enabled = false;
         }
         myButton.enabled = false;
-
+        
+        //if this is changed, make sure it matches chatboxchat and chatboxpic
         yield return new WaitForSeconds(2);
 
         myButton.enabled = false;
         myImage.enabled = false;
         myText.enabled = false;
 
-        //time before buttons reappear
+        //time before buttons reappear. this time period should also equal total chatDelay in chatboxchat and chatboxpic
         yield return new WaitForSeconds(4);
 
         myButton.enabled = true;
