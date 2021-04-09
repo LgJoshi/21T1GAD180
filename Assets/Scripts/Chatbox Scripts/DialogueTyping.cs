@@ -10,12 +10,18 @@ public class DialogueTyping : MonoBehaviour
     public GameMaster gameMaster;
     string myDialogue;
     float typingDelay;
+	AudioSource audioSource;
+	public AudioClip TypingSounds;
 
     public TextMeshProUGUI gameOneText;
     public TextMeshProUGUI gameTwoText;
     public TextMeshProUGUI gameThreeText;
     TextMeshProUGUI[] textArray;
-
+	
+	void Start()
+	{
+		audioSource = this.GetComponent<AudioSource>();
+	}
 
     void OnEnable() {
         EventManager.StartEvent += StartPlayText;
@@ -40,10 +46,12 @@ public class DialogueTyping : MonoBehaviour
     }
 
     void ChangeText() {
+		
         StopCoroutine(PlayText());
         myDialogue = gameMaster.GetSelectedDialogue();
         myText.text = " ";
         typingDelay = 1.6f / myDialogue.Length;
+		audioSource.PlayOneShot(TypingSounds,0.7f);
         StartCoroutine(PlayText());
     }
 
