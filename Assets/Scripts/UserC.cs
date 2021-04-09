@@ -9,6 +9,8 @@ public class UserC : MonoBehaviour
     public GameMaster gm;
     public UserJoin userJoin;
 
+    public int myUserPic;
+
     public string myUserName;
     public string tagOne;
     public string tagTwo;
@@ -104,16 +106,19 @@ public class UserC : MonoBehaviour
         if (profilePic <= 29)
         {
             pic1.enabled = true;
+            myUserPic = 301;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
             pic2.enabled = true;
+            myUserPic = 302;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
             pic3.enabled = true;
+            myUserPic = 303;
         }
     }
 
@@ -193,5 +198,10 @@ public class UserC : MonoBehaviour
     void OnDisable()
     {
         EventManager.OptionEvent -= DialogueCheck;
+    }
+
+    public int GetMyImage()
+    {
+        return myUserPic;
     }
 }

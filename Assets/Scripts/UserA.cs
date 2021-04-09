@@ -10,6 +10,11 @@ public class UserA : MonoBehaviour
     public GameMaster gm;
     public UserJoin userJoin;
 
+    public Image[] userPicsArray;
+    public int myUserPic;
+
+    public UserPics userpics;
+
     public string myUserName;
     public string tagOne;
     public string tagTwo;
@@ -27,7 +32,6 @@ public class UserA : MonoBehaviour
     public Image pic2;
     public Image pic3;
 
-
     //random int to determine which profile pic is used
     public int profilePic;
 
@@ -39,6 +43,7 @@ public class UserA : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+
         //creates list of tags
         tags = new List<string>();
 
@@ -73,6 +78,8 @@ public class UserA : MonoBehaviour
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
         offline = "User is offline";
+
+        
     }
 
     private void Update()
@@ -94,6 +101,7 @@ public class UserA : MonoBehaviour
             Destroy(tagTextThree);
             panelDull();
         }
+
     }
 
     //sets profile pic based on random number
@@ -102,16 +110,19 @@ public class UserA : MonoBehaviour
         if (profilePic <= 29)
         {
             pic1.enabled = true;
+            myUserPic = 101;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
             pic2.enabled = true;
+            myUserPic = 102;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
             pic3.enabled = true;
+            myUserPic = 103;
         }
     }
 
@@ -121,7 +132,7 @@ public class UserA : MonoBehaviour
         userNameText.color = new Color(1, 1, 1, 0.2f);
         tagTextOne.color = new Color(1, 1, 1, 0.2f);
         tagTextTwo.color = new Color(1, 1, 1, 0.2f);
-        tagTextThree.color = new Color(1, 1, 1, 0.2f);  
+        tagTextThree.color = new Color(1, 1, 1, 0.2f);
     }
 
     //gets user's tags
@@ -146,14 +157,13 @@ public class UserA : MonoBehaviour
             //tagTextThree.text = tagThree;
             tags.Remove(tagThree);
         }
-
     }
 
     //compares dialogue tag to user tags
     public void DialogueCheck()
     {
         dialogueTag = gm.GetSelectedTag();
-        
+
         //if mood is between 0 and 100, check will be made
         if (mood > 0 && mood < 100)
         {
@@ -182,6 +192,11 @@ public class UserA : MonoBehaviour
         return myUserName;
     }
 
+    public int GetMyImage()
+    {
+        return myUserPic;
+    }
+
     //subs and unsubs from dialogue check event
     void OnEnable()
     {
@@ -191,4 +206,5 @@ public class UserA : MonoBehaviour
     {
         EventManager.OptionEvent -= DialogueCheck;
     }
+
 }

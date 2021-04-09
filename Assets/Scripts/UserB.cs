@@ -9,6 +9,10 @@ public class UserB : MonoBehaviour
     public GameMaster gm;
     public UserJoin userJoin;
 
+    public UserA userA;
+
+    public int myUserPic;
+
     public string myUserName;
     public string tagOne;
     public string tagTwo;
@@ -73,6 +77,7 @@ public class UserB : MonoBehaviour
         tagTextThree.text = tagThree;
         offline = "User is offline";
 
+        
     }
 
     private void Update()
@@ -105,16 +110,19 @@ public class UserB : MonoBehaviour
         if (profilePic <= 29)
         {
             pic1.enabled = true;
+            myUserPic = 201;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
             pic2.enabled = true;
+            myUserPic = 202;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
             pic3.enabled = true;
+            myUserPic = 203;
         }
     }
 
@@ -191,5 +199,10 @@ public class UserB : MonoBehaviour
     void OnDisable()
     {
         EventManager.OptionEvent -= DialogueCheck;
+    }
+
+    public int GetMyImage()
+    {
+        return myUserPic;
     }
 }
