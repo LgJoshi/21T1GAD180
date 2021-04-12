@@ -11,6 +11,7 @@ public class ChatboxChat : MonoBehaviour
 
     Image myImage;
     TextMeshProUGUI myText;
+    GameMaster gameMaster;
 
     string[] positiveResponse;
     string[] negativeResponse;
@@ -18,6 +19,19 @@ public class ChatboxChat : MonoBehaviour
 
     float timeSpan;
     float chatDelay;
+
+    int historySelect;
+    int activeUsers;
+    bool[] activeStates;
+    bool[] responseStates;
+
+    bool aActive;
+    bool bActive;
+    bool cActive;
+
+    bool aPositive;
+    bool bPositive;
+    bool cPositive;
 
     void OnEnable() {
         EventManager.OptionEvent += ChatTextScroll;
@@ -34,31 +48,76 @@ public class ChatboxChat : MonoBehaviour
         chatDelay = timeSpan / 4;
         myImage = this.GetComponent<Image>();
         myText = GetComponentInChildren<TextMeshProUGUI>();
+        gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
 
         positiveResponse = new string[] { "111111111111111", "22222222222222", "333333333333333", "44444444444" };
         //positiveResponse = new string[] { "That sounds good", "That sounds promising", "Oooooooo", "You've piqued my interest" };
         negativeResponse = new string[] { "Meh", "I dunno" };
         myText.text = " ";
-        textHistory = new string[] { " ", " ", " ", " " };
+        textHistory = new string[] { "1", "2", "3", "4", "5", "6", "7", "8" };
+        textSelect = historyNumber;
 
-        
+        activeUsers = 3;
+        activeStates = new bool[3];
+        responseStates = new bool[3];
+        historySelect = 4;
     }
 
     // Update is called once per frame
     void Update() {
         if( Input.GetKeyDown("2") ) {
             textSelect = historyNumber;
+            updateResponses();
             StartCoroutine(ScrollChat());
+        }
+        if( Input.GetKeyDown("3") ) {
+            print(activeStates[0]);
         }
     }
 
     void ChatTextScroll() {
-        textSelect = historyNumber;
-        for( int i = 0;i < 4;i++ ) {
-            textHistory[i] = positiveResponse[i];
-        }
-        
+        updateResponses();
+        Debug.Log("updatesuccess");
         StartCoroutine(ScrollChat());
+    }
+
+    void updateResponses() {
+        Debug.Log("0");
+        activeStates = gameMaster.GetActiveStates();
+        Debug.Log("1");
+        responseStates = gameMaster.GetResponseStates();
+        Debug.Log("2");
+        if( activeStates[0] ) {
+            if( responseStates[0] ) {
+                textHistory[historySelect] = positiveResponse[Random.Range(0,positiveResponse.Length)];
+            } else {
+                textHistory[historySelect] = negativeResponse[Random.Range(0, positiveResponse.Length)];
+            }
+            IncrementHistorySelect();
+        }
+        if( activeStates[1] ) {
+            if( responseStates[1] ) {
+                textHistory[historySelect] = positiveResponse[Random.Range(0, positiveResponse.Length)];
+            } else {
+                textHistory[historySelect] = negativeResponse[Random.Range(0, positiveResponse.Length)];
+            }
+            IncrementHistorySelect();
+        }
+        if( activeStates[2] ) {
+            if( responseStates[2] ) {
+                textHistory[historySelect] = positiveResponse[Random.Range(0, positiveResponse.Length)];
+            } else {
+                textHistory[historySelect] = negativeResponse[Random.Range(0, positiveResponse.Length)];
+            }
+            IncrementHistorySelect();
+        }
+    }
+
+    void IncrementHistorySelect() {
+        historySelect--;
+        if( historySelect <= 0 ) {
+            historySelect = 8;
+        }
     }
 
     IEnumerator ScrollChat() {
@@ -72,17 +131,18 @@ public class ChatboxChat : MonoBehaviour
         }
 
         int i = 0;
-        while( i < 4 ) {
+        while( i < activeUsers+1 ) {
             i++;
             myText.text = textHistory[textSelect];
             textSelect++;
-            if( textSelect >= 4 ) {
+            if( textSelect >= 8 ) {
                 textSelect = 0;
             }
             yield return new WaitForSeconds(chatDelay);
         }
+        myText.text = textHistory[textSelect];
         textSelect++;
-        if( textSelect >= 4 ) {
+        if( textSelect >= 8 ) {
             textSelect = 0;
         }
         if( historyNumber == 3 ) {

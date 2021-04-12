@@ -44,6 +44,10 @@ public class GameMaster : MonoBehaviour {
     string[] currentDialogue;
     string[] currentTags;
 
+    bool[] activeStates;
+    bool[] responseStates;
+    int activeUsers;
+
     //This is a getter for the tag and dialogue that was selected
     public string selectedTag;
     public string GetSelectedTag() {
@@ -85,6 +89,10 @@ public class GameMaster : MonoBehaviour {
         dialogueCategories = new[] { actionDialogue, adventureDialogue, simulationDialogue, sportsDialogue, 
                                      coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
                                      craftingDialogue, tacticalDialogue };
+
+        activeStates = new bool[] { true, true, true };
+        responseStates = new bool[] { true, true, true };
+        activeUsers = 3;
     }
 
     private void Update() {
@@ -154,5 +162,20 @@ public class GameMaster : MonoBehaviour {
         for( int i = 0;i < 3;i++ ) {
             optionsList[i].ChangeDialogue(currentDialogue[i], currentTags[i]);
         }
+    }
+
+    public void UserStuff(int userNumber, bool active, bool positive) {
+        activeStates[userNumber] = active;
+        responseStates[userNumber] = positive;
+        if( !active ) {
+            activeUsers=activeUsers-1;
+        }
+    }
+
+    public bool[] GetActiveStates() {
+        return activeStates;
+    }
+    public bool[] GetResponseStates() {
+        return responseStates;
     }
 }

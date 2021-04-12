@@ -11,6 +11,12 @@ public class ChatboxPic : MonoBehaviour
     public Sprite[] userPics;
     SpriteRenderer spriteRenderer;
 
+    /*
+    UserA userAScript;
+    UserB userBScript;
+    UserC userCScript;
+    */
+
     Image userAImage;
     Image userBImage;
     Image userCImage;
@@ -65,10 +71,8 @@ public class ChatboxPic : MonoBehaviour
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = true;
         }
-
-        int i = 0;
-        while( i<4 ) {
-            i++;
+        
+        for( int i = 0;i < 4;i++ ) {
             spriteRenderer.sprite = userPics[spriteSelect];
             spriteSelect++;
             if( spriteSelect >= 4 ) {
