@@ -11,6 +11,7 @@ public class UserA : MonoBehaviour
     public GameMaster gm;
     public UserJoin userJoin;
     public SceneChanger sc;
+    public TimerScript timer;
 
     public Image[] userPicsArray;
     public int myUserPic;
@@ -90,7 +91,13 @@ public class UserA : MonoBehaviour
 
     private void Update()
     {
-        
+        if(join ==true)
+        {
+            if (timer.win == false)
+            {
+                timer.win = true;
+            }
+        }
 
         if(Input.GetKeyDown("k"))
         {

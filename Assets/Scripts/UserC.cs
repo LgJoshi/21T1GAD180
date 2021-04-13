@@ -8,6 +8,7 @@ public class UserC : MonoBehaviour
     public List<string> tags;
     public GameMaster gm;
     public UserJoin userJoin;
+    public TimerScript timer;
 
     public int myUserPic;
 
@@ -81,7 +82,13 @@ public class UserC : MonoBehaviour
 
     private void Update()
     {
-        
+        if (join == true)
+        {
+            if (timer.win == false)
+            {
+                timer.win = true;
+            }
+        }
     }
 
     //sets profile pic based on random number

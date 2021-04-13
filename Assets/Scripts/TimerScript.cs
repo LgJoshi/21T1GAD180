@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
     bool gameRunning;
     public float timer;
+    public bool win = false;
 
     public TextMeshProUGUI myText;
     string timerSeconds;
@@ -45,6 +47,12 @@ public class TimerScript : MonoBehaviour
                 myText.text = "0";
             }
         }
+
+        if(gameRunning == false && win == true)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 2);
+        }
+        
     }
 
     
