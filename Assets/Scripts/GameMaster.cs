@@ -44,9 +44,7 @@ public class GameMaster : MonoBehaviour {
     string[] currentDialogue;
     string[] currentTags;
 
-    bool[] activeStates;
-    bool[] responseStates;
-    int activeUsers;
+    
 
     //This is a getter for the tag and dialogue that was selected
     public string selectedTag;
@@ -60,6 +58,28 @@ public class GameMaster : MonoBehaviour {
     public int selectedGame;
     public int GetSelectedGame() {
         return selectedGame;
+    }
+
+    //
+    //
+    //variables of chatbox stuff
+    string[] positiveResponse;
+    string[] negativeResponse;
+    string[] textHistory;
+    int historySelect;
+
+    bool[] activeStates;
+    bool[] responseStates;
+    int activeUsers;
+    //
+    //
+    //
+
+    void OnEnable() {
+        EventManager.ChatUpdateEvent += updateResponses;
+    }
+    void OnDisable() {
+        EventManager.ChatUpdateEvent -= updateResponses;
     }
 
     //runs when scene is loaded
@@ -90,9 +110,23 @@ public class GameMaster : MonoBehaviour {
                                      coopDialogue, survivalDialogue, fpsDialogue, pvpDialogue, sandboxDialogue, 
                                      craftingDialogue, tacticalDialogue };
 
+        //
+        //
+        //
+        //all this stuff below is chatbox stuff
+        //positiveResponse = new string[] { "111111111111111", "22222222222222", "333333333333333", "44444444444" };
+        positiveResponse = new string[] { "That sounds good", "That sounds promising", "Oooooooo", "You've piqued my interest" };
+        negativeResponse = new string[] { "Meh", "I dunno" };
+
+        textHistory = new string[] { "1a", "2b", "3c", "4d", "5e", "6f", "7g", "8h" };
+        historySelect = 3;
+
         activeStates = new bool[] { true, true, true };
         responseStates = new bool[] { true, true, true };
         activeUsers = 3;
+        //
+        //
+        //
     }
 
     private void Update() {
@@ -127,6 +161,8 @@ public class GameMaster : MonoBehaviour {
 
         //Runs an event
         EventManager.OptionsChosen();
+        EventManager.ChatUpdated();
+        EventManager.ChatScrolled();
         
         //debugger text
         print("button "+(buttonNumber+1)+" pressed");
@@ -164,6 +200,11 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
+
+    //
+    //
+    //
+    //all this stuff below is chatbox stuff
     public void UserStuff(int userNumber, bool active, bool positive) {
         activeStates[userNumber] = active;
         responseStates[userNumber] = positive;
@@ -171,14 +212,46 @@ public class GameMaster : MonoBehaviour {
             activeUsers=activeUsers-1;
         }
     }
+    void updateResponses() {
+        //updates chatbox 3 (hopefully) to = selected dialogue since it represents the player for the first chat input
+        textHistory[historySelect] = selectedDialogue;
+        IncrementHistorySelect();
 
-    public bool[] GetActiveStates() {
-        return activeStates;
+        if( activeStates[0] ) {
+            if( responseStates[0] ) {
+                textHistory[historySelect] = positiveResponse[Random.Range(0, positiveResponse.Length)];
+            } else {
+                textHistory[historySelect] = negativeResponse[Random.Range(0, negativeResponse.Length)];
+            }
+            IncrementHistorySelect();
+        }
+        if( activeStates[1] ) {
+            if( responseStates[1] ) {
+                textHistory[historySelect] = positiveResponse[Random.Range(0, positiveResponse.Length)];
+            } else {
+                textHistory[historySelect] = negativeResponse[Random.Range(0, negativeResponse.Length)];
+            }
+            IncrementHistorySelect();
+        }
+        if( activeStates[2] ) {
+            if( responseStates[2] ) {
+                textHistory[historySelect] = positiveResponse[Random.Range(0, positiveResponse.Length)];
+            } else {
+                textHistory[historySelect] = negativeResponse[Random.Range(0, positiveResponse.Length)];
+            }
+            IncrementHistorySelect();
+        }
     }
-    public bool[] GetResponseStates() {
-        return responseStates;
+    void IncrementHistorySelect() {
+        historySelect++;
+        if( historySelect >= 8 ) {
+            historySelect = 0;
+        }
     }
     public int GetActiveUsers() {
         return activeUsers;
+    }
+    public string[] GetTextHistory() {
+        return textHistory;
     }
 }

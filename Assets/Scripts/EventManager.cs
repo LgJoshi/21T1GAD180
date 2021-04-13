@@ -24,6 +24,19 @@ public class EventManager : MonoBehaviour
     
     static public void GameEnded(){
         EventManager.EndEvent();
-    } 
-    
+    }
+
+    public delegate void ChatUpdate();
+    public static event ChatUpdate ChatUpdateEvent;
+
+    static public void ChatUpdated() {
+        EventManager.ChatUpdateEvent();
+    }
+
+    public delegate void ChatScroll();
+    public static event ChatScroll ChatScrollEvent;
+
+    static public void ChatScrolled() {
+        EventManager.ChatScrollEvent();
+    }
 }
