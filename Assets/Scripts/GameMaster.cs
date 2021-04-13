@@ -178,4 +178,7 @@ public class GameMaster : MonoBehaviour {
     public bool[] GetResponseStates() {
         return responseStates;
     }
+    public int GetActiveUsers() {
+        return activeUsers;
+    }
 }
