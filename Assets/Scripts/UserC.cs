@@ -81,28 +81,7 @@ public class UserC : MonoBehaviour
 
     private void Update()
     {
-        //if mood reaches 100, joins call
-        if (mood == 100)
-        {
-            active = false;
-            userJoin.userJoin();
-            /*userJoin.userName = myUserName;
-            userJoin.GetUsername();*/
-            panelDull();
-            //lock out interaction
-        }
-
-        //if mood reaches 0, leaves chat
-
-        if (mood == 0)
-        {
-            active = false;
-            //changes info box on user panel
-            tagTextOne.text = offline;
-            Destroy(tagTextTwo);
-            Destroy(tagTextThree);
-            panelDull();
-        }
+        
     }
 
     //sets profile pic based on random number
@@ -167,9 +146,26 @@ public class UserC : MonoBehaviour
     {
         if (active == true)
         {
-            dialogueTag = gm.GetSelectedTag();
-            gm.UserStuff(userNumber, active, positive);
+            //if mood reaches 100, joins call
+            if (mood == 100)
+            {
+                active = false;
+                userJoin.userJoin();
+                panelDull();
+            }
 
+            //if mood reaches 0, leaves chat
+            if (mood == 0)
+            {
+                active = false;
+                //changes info box on user panel
+                tagTextOne.text = offline;
+                Destroy(tagTextTwo);
+                Destroy(tagTextThree);
+                panelDull();
+            }
+
+            dialogueTag = gm.GetSelectedTag();
             //if mood is between 0 and 100, check will be made
             if (mood > 0 && mood < 100)
             {
@@ -184,6 +180,7 @@ public class UserC : MonoBehaviour
                     mood = mood - 10;
                 }
             }
+            gm.UserStuff(userNumber, active, positive);
         }
     }
 

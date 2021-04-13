@@ -20,15 +20,18 @@ public class UserPics : MonoBehaviour
         UserCImage = userC.GetMyImage();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    public int GetImages()
+    public int GetImageA()
     {
         return UserAImage;
+    }
+
+    public int GetImageB()
+    {
         return UserBImage;
+    }
+
+    public int GetImageC()
+    {
         return UserCImage;
     }
 

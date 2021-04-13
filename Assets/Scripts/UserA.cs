@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UserA : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class UserA : MonoBehaviour
     public List<string> tags;
     public GameMaster gm;
     public UserJoin userJoin;
+    public SceneChanger sc;
 
     public Image[] userPicsArray;
     public int myUserPic;
@@ -88,25 +90,12 @@ public class UserA : MonoBehaviour
 
     private void Update()
     {
-        //if mood reaches 100, joins call
-        if (mood == 100)
-        {
-            active = false;
-            userJoin.userJoin();
-            panelDull();
-        }
+        
 
-        //if mood reaches 0, leaves chat
-        if (mood <= 0)
+        if(Input.GetKeyDown("k"))
         {
-            active = false;
-            //changes info box on user panel
-            tagTextOne.text = offline;
-            Destroy(tagTextTwo);
-            Destroy(tagTextThree);
-            panelDull();
+            SceneManager.LoadScene(sceneBuildIndex: 2);
         }
-
     }
 
     //sets profile pic based on random number
@@ -168,10 +157,27 @@ public class UserA : MonoBehaviour
     public void DialogueCheck()
     {
         if (active == true)
-        {
-            gm.UserStuff(userNumber, active, positive);
-            dialogueTag = gm.GetSelectedTag();
+        {     
+            //if mood reaches 100, joins call
+            if (mood == 100)
+            {
+                active = false;
+                userJoin.userJoin();
+                panelDull();
+            }
 
+        //if mood reaches 0, leaves chat
+            if (mood <= 0)
+            {
+                active = false;
+                //changes info box on user panel
+                tagTextOne.text = offline;
+                Destroy(tagTextTwo);
+                Destroy(tagTextThree);
+                panelDull();
+            }
+        
+            dialogueTag = gm.GetSelectedTag();
             //if mood is between 0 and 100, check will be made
             if (mood > 0 && mood < 100)
             {
@@ -188,6 +194,7 @@ public class UserA : MonoBehaviour
                     positive = false;
                 }
             }
+            gm.UserStuff(userNumber, active, positive);
         }
     }
 
