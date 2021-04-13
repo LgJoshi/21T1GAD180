@@ -33,8 +33,12 @@ public class UserB : MonoBehaviour
     //just a random int to determine which profile pic is used
     public int profilePic;
 
-    //bools to be used later in development
-    bool join = false;
+    public int userNumber = 1;
+    public bool active = true;
+    public bool positive;
+
+    public bool join = false;
+
     public int mood = 40;
 
     public string dialogueTag;
@@ -85,7 +89,7 @@ public class UserB : MonoBehaviour
         //if mood reaches 100, joins call
         if (mood == 100)
         {
-            join = true;
+            active = false;
             userJoin.userJoin();
             /*userJoin.userName = myUserName;
             userJoin.GetUsername();*/
@@ -96,6 +100,7 @@ public class UserB : MonoBehaviour
         //if mood reaches 0, leaves chat
         if (mood == 0)
         {
+            active = false;
             //changes info box on user panel
             tagTextOne.text = offline;
             Destroy(tagTextTwo);
@@ -161,20 +166,23 @@ public class UserB : MonoBehaviour
     //compares dialogue tag to user tags
     public void DialogueCheck()
     {
-        dialogueTag = gm.GetSelectedTag();
-
-        //if mood is between 0 and 100, check will be made
-        if (mood > 0 && mood < 100)
+        if (active == true)
         {
-            //if the dialogue tag matches any of the user tags, mood increased by 10
-            if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+            dialogueTag = gm.GetSelectedTag();
+
+            //if mood is between 0 and 100, check will be made
+            if (mood > 0 && mood < 100)
             {
-                mood = mood + 10;
-            }
-            //if no match found, mood decreased by 10
-            else
-            {
-                mood = mood - 10;
+                //if the dialogue tag matches any of the user tags, mood increased by 10
+                if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
+                {
+                    mood = mood + 10;
+                }
+                //if no match found, mood decreased by 10
+                else
+                {
+                    mood = mood - 10;
+                }
             }
         }
     }
@@ -195,6 +203,7 @@ public class UserB : MonoBehaviour
     void OnEnable()
     {
         EventManager.OptionEvent += DialogueCheck;
+        gm.UserStuff(userNumber, active, positive);
     }
     void OnDisable()
     {
