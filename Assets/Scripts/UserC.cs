@@ -168,6 +168,7 @@ public class UserC : MonoBehaviour
         if (active == true)
         {
             dialogueTag = gm.GetSelectedTag();
+            gm.UserStuff(userNumber, active, positive);
 
             //if mood is between 0 and 100, check will be made
             if (mood > 0 && mood < 100)
@@ -202,7 +203,6 @@ public class UserC : MonoBehaviour
     void OnEnable()
     {
         EventManager.OptionEvent += DialogueCheck;
-        gm.UserStuff(userNumber, active, positive);
     }
     void OnDisable()
     {
