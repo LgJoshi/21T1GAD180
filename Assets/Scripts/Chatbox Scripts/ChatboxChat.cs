@@ -60,7 +60,7 @@ public class ChatboxChat : MonoBehaviour
         activeUsers = 3;
         activeStates = new bool[3];
         responseStates = new bool[3];
-        historySelect = 4;
+        historySelect = 3;
     }
 
     // Update is called once per frame
@@ -77,16 +77,15 @@ public class ChatboxChat : MonoBehaviour
 
     void ChatTextScroll() {
         updateResponses();
-        Debug.Log("updatesuccess");
         StartCoroutine(ScrollChat());
     }
 
     void updateResponses() {
-        Debug.Log("0");
         activeStates = gameMaster.GetActiveStates();
-        Debug.Log("1");
         responseStates = gameMaster.GetResponseStates();
-        Debug.Log("2");
+        textHistory[historySelect] = gameMaster.GetSelectedDialogue();
+        IncrementHistorySelect();
+
         if( activeStates[0] ) {
             if( responseStates[0] ) {
                 textHistory[historySelect] = positiveResponse[Random.Range(0,positiveResponse.Length)];
@@ -114,16 +113,16 @@ public class ChatboxChat : MonoBehaviour
     }
 
     void IncrementHistorySelect() {
-        historySelect--;
-        if( historySelect <= 0 ) {
-            historySelect = 8;
+        historySelect++;
+        if( historySelect >= 8 ) {
+            historySelect = 0;
         }
     }
 
     IEnumerator ScrollChat() {
 
         //if this is changed, make sure it matches chatboxpic and playeroptions
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
 
         if( historyNumber == 3 ) {
             myImage.enabled = true;

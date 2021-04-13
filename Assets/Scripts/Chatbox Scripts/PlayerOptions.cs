@@ -50,7 +50,7 @@ public class PlayerOptions : MonoBehaviour
         myButton.enabled = false;
         
         //if this is changed, make sure it matches chatboxchat and chatboxpic
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
 
         myButton.enabled = false;
         myImage.enabled = false;

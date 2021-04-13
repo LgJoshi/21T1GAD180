@@ -66,7 +66,7 @@ public class ChatboxPic : MonoBehaviour
     IEnumerator ScrollPic() {
 
         //if this is changed, make sure it matches chatboxchat and playeroptions
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
 
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = true;
@@ -88,6 +88,5 @@ public class ChatboxPic : MonoBehaviour
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = false;
         }
-
     }
 }
