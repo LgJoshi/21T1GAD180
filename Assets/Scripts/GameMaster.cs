@@ -119,7 +119,7 @@ public class GameMaster : MonoBehaviour {
         negativeResponse = new string[] { "Meh", "I dunno" };
 
         textHistory = new string[] { "1a", "2b", "3c", "4d", "5e", "6f", "7g", "8h" };
-        historySelect = 3;
+        historySelect = 2;
 
         activeStates = new bool[] { true, true, true };
         responseStates = new bool[] { true, true, true };
@@ -135,6 +135,16 @@ public class GameMaster : MonoBehaviour {
             print("Tag 1 is " + currentTags[0]);
             print("Tag 2 is " + currentTags[1]);
             print("Tag 3 is " + currentTags[2]);
+            print("active users is " + activeUsers);
+            print("text history:");
+            print(textHistory[0]);
+            print(textHistory[1]);
+            print(textHistory[2]);
+            print(textHistory[3]);
+            print(textHistory[4]);
+            print(textHistory[5]);
+            print(textHistory[6]);
+            print(textHistory[7]);
         }
     }
     //int tagOne, int tagTwo, int tagThree, int tagFour, int tagFive
@@ -237,10 +247,19 @@ public class GameMaster : MonoBehaviour {
             if( responseStates[2] ) {
                 textHistory[historySelect] = positiveResponse[Random.Range(0, positiveResponse.Length)];
             } else {
-                textHistory[historySelect] = negativeResponse[Random.Range(0, positiveResponse.Length)];
+                textHistory[historySelect] = negativeResponse[Random.Range(0, negativeResponse.Length)];
             }
             IncrementHistorySelect();
         }
+        print("text history:");
+        print(textHistory[0]);
+        print(textHistory[1]);
+        print(textHistory[2]);
+        print(textHistory[3]);
+        print(textHistory[4]);
+        print(textHistory[5]);
+        print(textHistory[6]);
+        print(textHistory[7]);
     }
     void IncrementHistorySelect() {
         historySelect++;

@@ -17,6 +17,8 @@ public class DialogueTyping : MonoBehaviour
     public TextMeshProUGUI gameTwoText;
     public TextMeshProUGUI gameThreeText;
     TextMeshProUGUI[] textArray;
+
+    float intialTimespan;
 	
 	void Start()
 	{
@@ -36,12 +38,15 @@ public class DialogueTyping : MonoBehaviour
         textArray = new TextMeshProUGUI[] { gameOneText, gameTwoText, gameThreeText };
         this.GetComponent<Image>().enabled = false;
         myText.text = " ";
+
+        //if this is changed, make sure it matches initial delay during scroll and playtext couroutines on ChetboxChat, ChatboxPic and PlayerOptions
+        intialTimespan = 1.4f;
     }
 
     void StartPlayText() {
         this.GetComponent<Image>().enabled = true;
         myDialogue = "Who wants to play " + textArray[gameMaster.GetSelectedGame()].text + "?";
-        typingDelay = 1.6f / myDialogue.Length;
+        typingDelay = intialTimespan / myDialogue.Length;
         StartCoroutine(PlayText());
     }
 
@@ -50,7 +55,7 @@ public class DialogueTyping : MonoBehaviour
         StopCoroutine(PlayText());
         myDialogue = gameMaster.GetSelectedDialogue();
         myText.text = " ";
-        typingDelay = 1.6f / myDialogue.Length;
+        typingDelay = intialTimespan / myDialogue.Length;
 		audioSource.PlayOneShot(TypingSounds,0.7f);
         StartCoroutine(PlayText());
     }

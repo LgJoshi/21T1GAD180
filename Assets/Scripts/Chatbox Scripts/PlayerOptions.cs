@@ -56,7 +56,7 @@ public class PlayerOptions : MonoBehaviour
         myImage.enabled = false;
         myText.enabled = false;
 
-        //time before buttons reappear. this time period should also equal total chatDelay in chatboxchat and chatboxpic
+        //time before buttons reappear. this time period should also equal total chatDelay (or timespan) in chatboxchat and chatboxpic
         yield return new WaitForSeconds(4);
 
         myButton.enabled = true;

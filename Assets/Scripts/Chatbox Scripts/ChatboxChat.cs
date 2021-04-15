@@ -86,10 +86,25 @@ public class ChatboxChat : MonoBehaviour
         if( historyNumber == 3 ) {
             myImage.enabled = true;
             myText.enabled = true;
+            if( textSelect == 0 ) {
+                myText.text = textHistory[7];
+            } else {
+                myText.text = textHistory[textSelect - 1];
+            }
         }
 
+        /*
+        if( textSelect == 0 ) {
+            myText.text = textHistory[8];
+        } else {
+            myText.text = textHistory[textSelect - 1];
+        }
+        */
+        
+        yield return new WaitForSeconds(chatDelay);
+
         int i = 0;
-        while( i < activeUsers+1 ) {
+        while( i < activeUsers ) {
             i++;
             myText.text = textHistory[textSelect];
             textSelect++;

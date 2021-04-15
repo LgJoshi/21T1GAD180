@@ -10,6 +10,7 @@ public class ChatboxPic : MonoBehaviour
 
     public Sprite[] userPics;
     SpriteRenderer spriteRenderer;
+    GameMaster gameMaster;
 
     /*
     UserA userAScript;
@@ -23,6 +24,9 @@ public class ChatboxPic : MonoBehaviour
 
     float timeSpan;
     float chatDelay;
+    int activeUsers;
+
+    
 
     void OnEnable() {
         EventManager.OptionEvent += ChatPicScroll;
@@ -48,18 +52,18 @@ public class ChatboxPic : MonoBehaviour
         userPics[1] = userBImage.sprite;
         userPics[2] = userCImage.sprite;
         */
-}
+        gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
+        activeUsers = 3;
+    }
 
     void Update()
     {
-        if( Input.GetKeyDown("2") ) {
-            spriteSelect = historyNumber;
-            StartCoroutine(ScrollPic());
-        }
+
     }
 
     void ChatPicScroll() {
         spriteSelect = historyNumber;
+        activeUsers = gameMaster.GetActiveUsers();
         StartCoroutine(ScrollPic());
     }
 
@@ -71,8 +75,8 @@ public class ChatboxPic : MonoBehaviour
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = true;
         }
-        
-        for( int i = 0;i < 4;i++ ) {
+
+        for( int i = 0;i < activeUsers+1;i++ ) {
             spriteRenderer.sprite = userPics[spriteSelect];
             spriteSelect++;
             if( spriteSelect >= 4 ) {
