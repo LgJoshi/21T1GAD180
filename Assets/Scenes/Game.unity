@@ -1149,12 +1149,12 @@ PrefabInstance:
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -87
+      value: -81
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16
+      value: 13.799988
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
@@ -1312,7 +1312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &350046113
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1375,7 +1375,7 @@ Transform:
   m_LocalScale: {x: 20.022625, y: 14.099158, z: 1}
   m_Children: []
   m_Father: {fileID: 1337220512}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &369033228
 PrefabInstance:
@@ -1597,7 +1597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &472293898
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ Transform:
   m_LocalScale: {x: 20.022625, y: 14.099158, z: 1}
   m_Children: []
   m_Father: {fileID: 1337220512}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480754089
 GameObject:
@@ -2016,6 +2016,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
         type: 3}
+    - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc80cbc849484944a98344e0694ee9e, type: 3}
 --- !u!224 &586304950 stripped
@@ -2039,7 +2044,7 @@ PrefabInstance:
     - target: {fileID: 1279044612059641568, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 60
+      value: 65.46703
       objectReference: {fileID: 0}
     - target: {fileID: 1279044612059641568, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -2988,7 +2993,7 @@ PrefabInstance:
     - target: {fileID: 1279044612059641568, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 9.767029
       objectReference: {fileID: 0}
     - target: {fileID: 1279044612059641568, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -3164,7 +3169,7 @@ PrefabInstance:
     - target: {fileID: 1279044612059641568, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 119
+      value: 120.567
       objectReference: {fileID: 0}
     - target: {fileID: 1279044612059641568, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -3435,12 +3440,12 @@ PrefabInstance:
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -89
+      value: -81
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 79
+      value: 80.1
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
@@ -3622,7 +3627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1078436661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3685,7 +3690,7 @@ Transform:
   m_LocalScale: {x: 20.022625, y: 14.099158, z: 1}
   m_Children: []
   m_Father: {fileID: 1337220512}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1233990067
 PrefabInstance:
@@ -3757,12 +3762,12 @@ PrefabInstance:
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -91
+      value: -81
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51
+      value: -53.6
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
@@ -3863,10 +3868,10 @@ Transform:
   - {fileID: 231522175}
   - {fileID: 1640926132}
   - {fileID: 727012124}
-  - {fileID: 472293899}
   - {fileID: 1078436662}
   - {fileID: 350046114}
   - {fileID: 2120606402}
+  - {fileID: 472293899}
   - {fileID: 1076397807}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -6010,7 +6015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2120606401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6073,7 +6078,7 @@ Transform:
   m_LocalScale: {x: 20.022625, y: 14.099158, z: 1}
   m_Children: []
   m_Father: {fileID: 1337220512}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139838908
 GameObject:
@@ -6244,7 +6249,7 @@ PrefabInstance:
     - target: {fileID: 676311519215463435, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2057574358405651759, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
@@ -6314,7 +6319,7 @@ PrefabInstance:
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -118
+      value: -121
       objectReference: {fileID: 0}
     - target: {fileID: 3364129960987947233, guid: c16c9119f7bf0194cb7afc4b0919f888,
         type: 3}
