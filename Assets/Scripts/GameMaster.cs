@@ -139,6 +139,7 @@ public class GameMaster : MonoBehaviour {
             print("Tag 1 is " + currentTags[0]);
             print("Tag 2 is " + currentTags[1]);
             print("Tag 3 is " + currentTags[2]);
+            /*
             print("active users is " + activeUsers);
             print("text history:");
             print(textHistory[0]);
@@ -149,6 +150,7 @@ public class GameMaster : MonoBehaviour {
             print(textHistory[5]);
             print(textHistory[6]);
             print(textHistory[7]);
+            */
         }
     }
     //int tagOne, int tagTwo, int tagThree, int tagFour, int tagFive
@@ -190,13 +192,31 @@ public class GameMaster : MonoBehaviour {
 
     //This function randomly selects from the list of available dialogue and updates currentTags and currentDialogue to match it
     void NewDialogue() {
+        //int randomSelect = Random.Range(0, categoriesList.Count);
+        List<string> randomTagList = new List<string>(tagsList);
+        List<string[]> randomDialogueList = new List<string[]>(categoriesList);
+        
+        //fischer-yates shuffle for lists
+        for( int i = 0;i < (randomTagList.Count);i++ ) {
+            int r = Random.Range(i, randomTagList.Count);
+            string t = randomTagList[r];
+            randomTagList[r] = randomTagList[i];
+            randomTagList[i] = t;
+
+            string[] d = randomDialogueList[r];
+            randomDialogueList[r] = randomDialogueList[i];
+            randomDialogueList[i] = d;
+        }
+
         //this "for loop" pulls a random tag and dialogue from the lists and puts them in current dialogue/tag
         for( int i = 0;i < 3;i++ ) {
-            int randomSelect = Random.Range(0, categoriesList.Count);
+            /*
             List<string> randomTagList = new List<string> { tagsList[randomSelect] };
             currentTags[i] = randomTagList[Random.Range(0, randomTagList.Count)];
-            List<string> randomDialogueList = new List<string>(categoriesList[randomSelect]);
-            currentDialogue[i] = randomDialogueList[Random.Range(0, randomDialogueList.Count)];
+            */
+            currentTags[i] = randomTagList[i];
+            string[] dd = randomDialogueList[i];
+            currentDialogue[i] = dd[Random.Range(0, dd.Length)];
         }
     }
 
