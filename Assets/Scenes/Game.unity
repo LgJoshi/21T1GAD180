@@ -2010,6 +2010,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChatPic
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641574, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: userPics.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc80cbc849484944a98344e0694ee9e, type: 3}
 --- !u!224 &586304950 stripped
@@ -2090,6 +2096,12 @@ PrefabInstance:
       propertyPath: historyNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641574, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: userPics.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+        type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
       propertyPath: m_Enabled
@@ -3033,6 +3045,12 @@ PrefabInstance:
       propertyPath: historyNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641574, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: userPics.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+        type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
       propertyPath: m_Enabled
@@ -3203,6 +3221,12 @@ PrefabInstance:
       propertyPath: historyNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641574, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: userPics.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+        type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
       propertyPath: m_Enabled
@@ -4833,6 +4857,10 @@ MonoBehaviour:
   selectedTag: 
   selectedDialogue: 
   selectedGame: 0
+  textArray:
+  - {fileID: 645025962}
+  - {fileID: 256799728}
+  - {fileID: 30970601}
 --- !u!1 &1835432307
 GameObject:
   m_ObjectHideFlags: 0
