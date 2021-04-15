@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 4421596759263352752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3360285, y: 0.07711473, z: 1}
+  m_LocalScale: {x: 0.3990338, y: 0.087007105, z: 1}
   m_Children:
   - {fileID: 8172126161044235424}
   m_Father: {fileID: 0}
@@ -116,7 +116,7 @@ RectTransform:
   m_GameObject: {fileID: 4618681081036203582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3364129960987947233}
   m_RootOrder: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -776.9803, y: 38.44787, z: -739.8426, w: 44.85613}
+  m_margin: {x: -1123.3751, y: 38.44787, z: -1104.547, w: 44.85613}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
