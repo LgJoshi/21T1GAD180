@@ -39,4 +39,11 @@ public class EventManager : MonoBehaviour
     static public void ChatScrolled() {
         EventManager.ChatScrollEvent();
     }
+
+    public delegate void TimerEnding();
+    public static event TimerEnding TimeSpeedEvent;
+
+    static public void TimerSpeedup() {
+        EventManager.TimeSpeedEvent();
+    }
 }

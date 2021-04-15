@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class TimerScript : MonoBehaviour
 {
     bool gameRunning;
+    bool spedUp;
     public float timer;
     public bool win = false;
 
@@ -16,6 +17,7 @@ public class TimerScript : MonoBehaviour
 
     void Start() {
         gameRunning = false;
+        spedUp = false;
     }
 
     void Awake() {
@@ -52,6 +54,11 @@ public class TimerScript : MonoBehaviour
                 EventManager.GameEnded();
                 myText.text = "0";
             }
+        }
+
+        if ( timer < 15f && spedUp==false) {
+            EventManager.TimerSpeedup();
+            spedUp = true;
         }
 
         if(gameRunning == false && win == true)

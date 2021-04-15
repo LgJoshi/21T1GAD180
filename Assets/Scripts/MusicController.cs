@@ -8,11 +8,13 @@ public class MusicController : MonoBehaviour {
 
     void OnEnable() {
         EventManager.StartEvent += PlayMusic;
-        EventManager.EndEvent += StopMusic;
+        EventManager.TimeSpeedEvent += SpeedUp;
+        EventManager.EndEvent += SlowDown;
     }
     void OnDisable() {
         EventManager.StartEvent -= PlayMusic;
-        EventManager.EndEvent -= StopMusic;
+        EventManager.TimeSpeedEvent -= SpeedUp;
+        EventManager.EndEvent -= SlowDown;
     }
 
     void PlayMusic() {
@@ -22,6 +24,14 @@ public class MusicController : MonoBehaviour {
     IEnumerator PlayDelay() {
         yield return new WaitForSeconds(1.5f);
         music[0].Play();
+    }
+
+    void SpeedUp() {
+        music[0].pitch = 1.15f;
+    }
+
+    void SlowDown() {
+        music[0].pitch = 0.8f;
     }
 
     void StopMusic() {
