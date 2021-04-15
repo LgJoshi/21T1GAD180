@@ -29,10 +29,14 @@ public class ChatboxPic : MonoBehaviour
     
 
     void OnEnable() {
+        EventManager.StartEvent += StartupPic;
         EventManager.OptionEvent += ChatPicScroll;
+        EventManager.EndEvent += StopGame;
     }
     void OnDisable() {
+        EventManager.StartEvent -= StartupPic;
         EventManager.OptionEvent -= ChatPicScroll;
+        EventManager.EndEvent -= StopGame;
     }
 
     void Awake()
@@ -54,11 +58,27 @@ public class ChatboxPic : MonoBehaviour
         */
         gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
         activeUsers = 3;
+
+        spriteRenderer.enabled = false;
     }
 
-    void Update()
-    {
+    void StartupPic() {
+        StartCoroutine(StartupScroll());
+    }
 
+    IEnumerator StartupScroll() {
+        yield return new WaitForSeconds(1.5f);
+        if( historyNumber == 3 ) {
+            spriteRenderer.enabled = true;
+            spriteRenderer.sprite = userPics[3];
+            yield return new WaitForSeconds(chatDelay);
+            spriteRenderer.enabled = false;
+        }
+        if( historyNumber == 2 ) {
+            yield return new WaitForSeconds(chatDelay);
+            spriteRenderer.enabled = true;
+            spriteRenderer.sprite = userPics[3];
+        }
     }
 
     void ChatPicScroll() {
@@ -78,6 +98,9 @@ public class ChatboxPic : MonoBehaviour
 
         for( int i = 0;i < activeUsers+1;i++ ) {
             spriteRenderer.sprite = userPics[spriteSelect];
+            if( spriteSelect == 3 ) {
+                spriteRenderer.enabled = true;
+            }
             spriteSelect++;
             if( spriteSelect >= 4 ) {
                 spriteSelect = 0;
@@ -92,5 +115,9 @@ public class ChatboxPic : MonoBehaviour
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = false;
         }
+    }
+
+    void StopGame() {
+        StopAllCoroutines();
     }
 }

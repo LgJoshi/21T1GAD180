@@ -32,6 +32,12 @@ public class TimerScript : MonoBehaviour
     }
     void TimerStart() {
         this.GetComponent<Image>().enabled = true;
+        StartCoroutine(StartDelay());
+    }
+
+    IEnumerator StartDelay() {
+        //this time must be consistent between PlayerOptions, TimerScript, ChatboxChat/4 and ChatboxPic/4
+        yield return new WaitForSeconds(2.5f);
         gameRunning = true;
     }
 

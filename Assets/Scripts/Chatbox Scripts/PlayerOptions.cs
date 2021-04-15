@@ -14,10 +14,12 @@ public class PlayerOptions : MonoBehaviour
     string myTag;
 
     void OnEnable() {
+        EventManager.StartEvent += StartupChat;
         EventManager.EndEvent += DisableSelf;
         EventManager.OptionEvent += TempDisable;
     }
     void OnDisable() {
+        EventManager.StartEvent -= StartupChat;
         EventManager.EndEvent -= DisableSelf;
         EventManager.OptionEvent -= TempDisable;
     }
@@ -27,6 +29,21 @@ public class PlayerOptions : MonoBehaviour
         myImage = GetComponent<Image>();
 
         selected = false;
+
+        myButton.enabled = false;
+        myImage.enabled = false;
+        myText.enabled = false;
+    }
+
+    void StartupChat() {
+        StartCoroutine(StartGameDelay());
+    }
+
+    IEnumerator StartGameDelay() {
+        yield return new WaitForSeconds(2.5f);
+        myButton.enabled = true;
+        myImage.enabled = true;
+        myText.enabled = true;
     }
 
     public void ChangeDialogue(string newText, string newTag) {

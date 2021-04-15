@@ -34,10 +34,14 @@ public class ChatboxChat : MonoBehaviour
     bool cPositive;
 
     void OnEnable() {
+        EventManager.StartEvent += StartupChat;
         EventManager.ChatScrollEvent += ChatTextScroll;
+        EventManager.EndEvent += StopGame;
     }
     void OnDisable() {
+        EventManager.StartEvent -= StartupChat;
         EventManager.ChatScrollEvent -= ChatTextScroll;
+        EventManager.EndEvent -= StopGame;
     }
 
     void Awake() {
@@ -50,7 +54,8 @@ public class ChatboxChat : MonoBehaviour
         myText = GetComponentInChildren<TextMeshProUGUI>();
         gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
 
-        
+        myImage.enabled = false;
+        myText.enabled = false;
         myText.text = " ";
         textHistory = new string[] { "1", "2", "3", "4", "5", "6", "7", "8" };
         textSelect = historyNumber;
@@ -70,13 +75,34 @@ public class ChatboxChat : MonoBehaviour
         }
     }
 
+    void StartupChat() {
+        textHistory = gameMaster.GetTextHistory();
+        StartCoroutine(StartupScroll());
+    }
+
+    IEnumerator StartupScroll() {
+        yield return new WaitForSeconds(1.5f);
+        if( historyNumber == 3 ) {
+            myImage.enabled = true;
+            myText.enabled = true;
+            myText.text = textHistory[1];
+            yield return new WaitForSeconds(chatDelay);
+            myImage.enabled = false;
+            myText.enabled = false;
+        }
+        if( historyNumber == 2 ) {
+            yield return new WaitForSeconds(chatDelay);
+            myImage.enabled = true;
+            myText.enabled = true;
+            myText.text = textHistory[1];
+        }
+    }
+
     void ChatTextScroll() {
         textHistory = gameMaster.GetTextHistory();
         activeUsers = gameMaster.GetActiveUsers();
         StartCoroutine(ScrollChat());
     }
-
-    
 
     IEnumerator ScrollChat() {
 
@@ -106,6 +132,12 @@ public class ChatboxChat : MonoBehaviour
         int i = 0;
         while( i < activeUsers ) {
             i++;
+            //enables chatbox dialogue boxes starting from the first message
+            if( textSelect == 1 ) {
+                myImage.enabled = true;
+                myText.enabled = true;
+            }
+            
             myText.text = textHistory[textSelect];
             textSelect++;
             if( textSelect >= 8 ) {
@@ -122,5 +154,9 @@ public class ChatboxChat : MonoBehaviour
             myImage.enabled = false;
             myText.enabled = false;
         }
+    }
+
+    void StopGame() {
+        StopAllCoroutines();
     }
 }

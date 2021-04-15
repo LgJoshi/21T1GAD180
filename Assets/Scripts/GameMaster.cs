@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameMaster : MonoBehaviour {
 
@@ -71,6 +73,8 @@ public class GameMaster : MonoBehaviour {
     bool[] activeStates;
     bool[] responseStates;
     int activeUsers;
+
+    public TextMeshProUGUI[] textArray;
     //
     //
     //
@@ -156,6 +160,8 @@ public class GameMaster : MonoBehaviour {
         //These are the lists which can be manipulated and changed for new dialogue and tags
         tagsList = new List<string> { tags[convertedValues[1]], tags[convertedValues[2]], tags[convertedValues[3]], tags[convertedValues[4]], tags[convertedValues[5]] };
         categoriesList = new List<string[]> { dialogueCategories[convertedValues[1]], dialogueCategories[convertedValues[2]], dialogueCategories[convertedValues[3]], dialogueCategories[convertedValues[4]], dialogueCategories[convertedValues[5]] };
+
+        textHistory[1] = "I'm looking for people to play " + textArray[selectedGame].text + "!";
 
         NewDialogue();
         UpdateDialogue();

@@ -19,8 +19,9 @@ public class DialogueTyping : MonoBehaviour
     TextMeshProUGUI[] textArray;
 
     float intialTimespan;
-	
-	void Start()
+    float sendDelay;
+
+    void Start()
 	{
 		audioSource = this.GetComponent<AudioSource>();
 	}
@@ -28,10 +29,12 @@ public class DialogueTyping : MonoBehaviour
     void OnEnable() {
         EventManager.StartEvent += StartPlayText;
         EventManager.OptionEvent += ChangeText;
+        EventManager.EndEvent += StopGame;
     }
     void OnDisable() {
         EventManager.StartEvent -= StartPlayText;
         EventManager.OptionEvent -= ChangeText;
+        EventManager.EndEvent -= StopGame;
     }
 
     private void Awake() {
@@ -39,31 +42,38 @@ public class DialogueTyping : MonoBehaviour
         this.GetComponent<Image>().enabled = false;
         myText.text = " ";
 
-        //if this is changed, make sure it matches initial delay during scroll and playtext couroutines on ChetboxChat, ChatboxPic and PlayerOptions
-        intialTimespan = 1.4f;
+        //if this is changed, make sure initialTimespan+sendDelay matches initial delay during scroll and playtext couroutines on ChetboxChat, ChatboxPic and PlayerOptions
+        intialTimespan = 1.0f;
+        sendDelay = 0.3f;
     }
 
     void StartPlayText() {
         this.GetComponent<Image>().enabled = true;
-        myDialogue = "Who wants to play " + textArray[gameMaster.GetSelectedGame()].text + "?";
+        myDialogue = "I'm looking for people to play " + textArray[gameMaster.GetSelectedGame()].text + "!";
         typingDelay = intialTimespan / myDialogue.Length;
         StartCoroutine(PlayText());
     }
 
     void ChangeText() {
-		
         StopCoroutine(PlayText());
         myDialogue = gameMaster.GetSelectedDialogue();
-        myText.text = " ";
         typingDelay = intialTimespan / myDialogue.Length;
 		audioSource.PlayOneShot(TypingSounds,0.7f);
         StartCoroutine(PlayText());
     }
 
     IEnumerator PlayText() {
+        myText.text = " ";
         foreach (char c in myDialogue){
             myText.text += c;
             yield return new WaitForSeconds(typingDelay);
         }
+        //delay before "sending" message
+        yield return new WaitForSeconds(sendDelay);
+        myText.text = " ";
+    }
+
+    void StopGame() {
+        StopAllCoroutines();
     }
 }
