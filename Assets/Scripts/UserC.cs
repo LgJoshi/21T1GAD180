@@ -18,7 +18,7 @@ public class UserC : MonoBehaviour
     public string tagThree;
     public string offline;
 
-    //text boxes for name/tags
+    //text boxes for names/tags
     public Text userNameText;
     public Text tagTextOne;
     public Text tagTextTwo;
@@ -37,14 +37,14 @@ public class UserC : MonoBehaviour
     public bool positive;
 
     public bool join = false;
-
-    public int mood = 40;
+    int mood = 50;
 
     public string dialogueTag;
 
     // Start is called before the first frame update
     void Awake()
     {
+        //creates list of tags
         tags = new List<string>();
 
         tags.Add("FPS");
@@ -59,7 +59,7 @@ public class UserC : MonoBehaviour
         tags.Add("Competitive");
         tags.Add("Tactical");
 
-
+        //hides profiles pics until further notice
         pic1.enabled = false;
         pic2.enabled = false;
         pic3.enabled = false;
@@ -89,6 +89,11 @@ public class UserC : MonoBehaviour
                 timer.win = true;
             }
         }
+
+        if(Input.GetKeyDown("h"))
+            {
+            mood = 100;
+            }
     }
 
     //sets profile pic based on random number
@@ -156,6 +161,7 @@ public class UserC : MonoBehaviour
             //if mood reaches 100, joins call
             if (mood == 100)
             {
+                join = true;
                 active = false;
                 userJoin.userJoin();
                 panelDull();
@@ -173,6 +179,7 @@ public class UserC : MonoBehaviour
             }
 
             dialogueTag = gm.GetSelectedTag();
+
             //if mood is between 0 and 100, check will be made
             if (mood > 0 && mood < 100)
             {

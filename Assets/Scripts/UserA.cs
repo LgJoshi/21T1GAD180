@@ -10,7 +10,6 @@ public class UserA : MonoBehaviour
     public List<string> tags;
     public GameMaster gm;
     public UserJoin userJoin;
-    public SceneChanger sc;
     public TimerScript timer;
 
     public Image[] userPicsArray;
@@ -43,7 +42,7 @@ public class UserA : MonoBehaviour
     public bool positive;
 
     public bool join = false;
-    public int mood = 40;
+    int mood = 50;
 
     public string dialogueTag;
 
@@ -85,24 +84,15 @@ public class UserA : MonoBehaviour
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
         offline = "User is offline";
-
-        
+                
     }
 
     private void Update()
     {
-        if(join ==true)
+        if (Input.GetKeyDown("f"))
         {
-            if (timer.win == false)
-            {
-                timer.win = true;
-            }
-        }
-
-        if(Input.GetKeyDown("k"))
-        {
-            SceneManager.LoadScene(sceneBuildIndex: 2);
-        }
+            mood = 100;
+        }            
     }
 
     //sets profile pic based on random number
@@ -164,16 +154,16 @@ public class UserA : MonoBehaviour
     public void DialogueCheck()
     {
         if (active == true)
-        {     
-            //if mood reaches 100, joins call
-            if (mood == 100)
+        {
+            if (join == true)
             {
-                active = false;
-                userJoin.userJoin();
-                panelDull();
+                if (timer.win == false)
+                {
+                    timer.win = true;
+                }
             }
 
-        //if mood reaches 0, leaves chat
+            //if mood reaches 0, leaves chat
             if (mood <= 0)
             {
                 active = false;
@@ -183,7 +173,16 @@ public class UserA : MonoBehaviour
                 Destroy(tagTextThree);
                 panelDull();
             }
-        
+
+            //if mood reaches 100, joins call
+            if (mood == 100)
+            {
+                join = true;
+                userJoin.userJoin();
+                panelDull();
+                active = false;
+            }
+
             dialogueTag = gm.GetSelectedTag();
             //if mood is between 0 and 100, check will be made
             if (mood > 0 && mood < 100)

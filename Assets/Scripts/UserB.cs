@@ -10,8 +10,6 @@ public class UserB : MonoBehaviour
     public UserJoin userJoin;
     public TimerScript timer;
 
-    public UserA userA;
-
     public int myUserPic;
 
     public string myUserName;
@@ -40,7 +38,7 @@ public class UserB : MonoBehaviour
 
     public bool join = false;
 
-    public int mood = 40;
+    int mood = 50;
 
     public string dialogueTag;
 
@@ -80,9 +78,7 @@ public class UserB : MonoBehaviour
         tagTextOne.text = tagOne;
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
-        offline = "User is offline";
-
-        
+        offline = "User is offline";        
     }
 
     private void Update()
@@ -93,6 +89,11 @@ public class UserB : MonoBehaviour
             {
                 timer.win = true;
             }
+        }
+
+        if(Input.GetKeyDown("g"))
+        {
+            mood = 100;
         }
     }
 
@@ -158,6 +159,7 @@ public class UserB : MonoBehaviour
             //if mood reaches 100, joins call
             if (mood == 100)
             {
+                join = true;
                 active = false;
                 userJoin.userJoin();
                 panelDull();
@@ -174,7 +176,7 @@ public class UserB : MonoBehaviour
                 panelDull();
             }
 
-            gm.UserStuff(userNumber, active, positive);
+            dialogueTag = gm.GetSelectedTag();
 
             //if mood is between 0 and 100, check will be made
             if (mood > 0 && mood < 100)
@@ -190,7 +192,8 @@ public class UserB : MonoBehaviour
                     mood = mood - 10;
                 }
             }
-            dialogueTag = gm.GetSelectedTag();
+            gm.UserStuff(userNumber, active, positive);
+            
         }
     }
 

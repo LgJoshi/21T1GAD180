@@ -52,7 +52,7 @@ public class TimerScript : MonoBehaviour
             if( timer <= 0 ) {
                 gameRunning = false;
                 EventManager.GameEnded();
-                myText.text = "0";
+                myText.text = "0";                
             }
         }
 
@@ -61,10 +61,14 @@ public class TimerScript : MonoBehaviour
             spedUp = true;
         }
 
-        if(gameRunning == false && win == true)
+        if (gameRunning == false && win == true)
         {
             SceneManager.LoadScene(sceneBuildIndex: 2);
         }
+        /*else if (gameRunning == false && win == false)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 3);
+        }*/
         
     }
 

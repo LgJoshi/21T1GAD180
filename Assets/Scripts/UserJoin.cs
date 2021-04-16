@@ -32,7 +32,6 @@ public class UserJoin : MonoBehaviour
         userNameC = userC.GetMyName();     
     }
 
-
     public void userJoin()
     {
         //checks userA join and if the list DOESN'T contain the name
@@ -44,7 +43,7 @@ public class UserJoin : MonoBehaviour
         }
         //else
         //checks userB join and if the list DOESN'T contain the name
-        if (userB.GetJoin() == true && !joined.Contains("Jenny"))
+        else if (userB.GetJoin() == true && !joined.Contains("Jenny"))
         {
             //adds user to the join list, prints list to joined panel
             joined.Add(userNameB);
@@ -52,7 +51,7 @@ public class UserJoin : MonoBehaviour
         }
         //else
         //checks userC join and if the list DOESN'T contain the name
-        if (userC.GetJoin() == true && !joined.Contains("Sam"))
+        else if (userC.GetJoin() == true && !joined.Contains("Sam"))
         {
             //adds user to the join list, prints list to joined panel
             joined.Add(userNameC);
@@ -67,5 +66,9 @@ public class UserJoin : MonoBehaviour
         userNameJoin.text = (text);
     }
 
+    private void Update()
+    {
+       
+    }
 
 }
