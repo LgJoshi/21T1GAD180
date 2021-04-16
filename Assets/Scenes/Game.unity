@@ -2325,6 +2325,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc80cbc849484944a98344e0694ee9e, type: 3}
 --- !u!224 &586304950 stripped
@@ -2426,6 +2432,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc80cbc849484944a98344e0694ee9e, type: 3}
 --- !u!114 &645025962 stripped
@@ -3368,6 +3380,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc80cbc849484944a98344e0694ee9e, type: 3}
 --- !u!1 &868942391
@@ -3635,6 +3653,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc80cbc849484944a98344e0694ee9e, type: 3}
 --- !u!4 &972720219 stripped
