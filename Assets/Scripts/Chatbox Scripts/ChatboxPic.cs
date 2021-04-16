@@ -7,10 +7,12 @@ public class ChatboxPic : MonoBehaviour
 {
     public int historyNumber;
     int spriteSelect;
+    int historySelect;
 
     public Sprite[] userPics;
     SpriteRenderer spriteRenderer;
     GameMaster gameMaster;
+    Sprite[] spriteHistory;
 
     /*
     UserA userAScript;
@@ -47,6 +49,8 @@ public class ChatboxPic : MonoBehaviour
         chatDelay = timeSpan/4;
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
+        spriteHistory = new Sprite[] { userPics[0], userPics[3], userPics[3], userPics[3], userPics[0], userPics[1], userPics[2], userPics[3] };
+
         /*
         userAImage = GameObject.Find("UserA").GetComponentInChildren<Image>();
         userBImage = GameObject.Find("UserB").GetComponentInChildren<Image>();
@@ -58,6 +62,8 @@ public class ChatboxPic : MonoBehaviour
         */
         gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
         activeUsers = 3;
+        spriteSelect = historyNumber;
+        historySelect = 2;
 
         spriteRenderer.enabled = false;
     }
@@ -70,19 +76,44 @@ public class ChatboxPic : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = true;
-            spriteRenderer.sprite = userPics[3];
+            spriteRenderer.sprite = spriteHistory[2];
             yield return new WaitForSeconds(chatDelay);
             spriteRenderer.enabled = false;
         }
         if( historyNumber == 2 ) {
             yield return new WaitForSeconds(chatDelay);
             spriteRenderer.enabled = true;
-            spriteRenderer.sprite = userPics[3];
+            spriteRenderer.sprite = spriteHistory[2];
+        }
+    }
+
+    void UpdatePicHistory() {
+        bool[] activeStates = gameMaster.GetActiveStates();
+        spriteHistory[historySelect] = userPics[3];
+        IncrementHistorySelect();
+
+        if( activeStates[0] ) {
+            spriteHistory[historySelect] = userPics[0];
+            IncrementHistorySelect();
+        }
+        if( activeStates[1] ) {
+            spriteHistory[historySelect] = userPics[1];
+            IncrementHistorySelect();
+        }
+        if( activeStates[2] ) {
+            spriteHistory[historySelect] = userPics[2];
+            IncrementHistorySelect();
+        }
+    }
+    void IncrementHistorySelect() {
+        historySelect++;
+        if( historySelect >= 8 ) {
+            historySelect = 0;
         }
     }
 
     void ChatPicScroll() {
-        spriteSelect = historyNumber;
+        UpdatePicHistory();
         activeUsers = gameMaster.GetActiveUsers();
         StartCoroutine(ScrollPic());
     }
@@ -94,26 +125,34 @@ public class ChatboxPic : MonoBehaviour
 
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = true;
+            if( spriteSelect == 0 ) {
+                spriteRenderer.sprite = spriteHistory[7];
+            } else {
+                spriteRenderer.sprite = spriteHistory[spriteSelect - 1];
+            }
         }
 
-        for( int i = 0;i < activeUsers+1;i++ ) {
-            spriteRenderer.sprite = userPics[spriteSelect];
-            if( spriteSelect == 3 ) {
+        yield return new WaitForSeconds(chatDelay);
+
+        for( int i = 0;i < activeUsers;i++ ) {
+            if( spriteSelect == 1 ) {
                 spriteRenderer.enabled = true;
             }
-            spriteSelect++;
-            if( spriteSelect >= 4 ) {
-                spriteSelect = 0;
-            }
+            spriteRenderer.sprite = spriteHistory[spriteSelect];
+            IncrementSpriteSelect();
             yield return new WaitForSeconds(chatDelay);
         }
-        spriteRenderer.sprite = userPics[spriteSelect];
-        spriteSelect++;
-        if( spriteSelect >= 4 ) {
-            spriteSelect = 0;
-        }
+        spriteRenderer.sprite = spriteHistory[spriteSelect];
+        IncrementSpriteSelect();
         if( historyNumber == 3 ) {
             spriteRenderer.enabled = false;
+        }
+    }
+
+    void IncrementSpriteSelect() {
+        spriteSelect++;
+        if( spriteSelect >= 8 ) {
+            spriteSelect = 0;
         }
     }
 

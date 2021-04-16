@@ -70,11 +70,15 @@ public class GameMaster : MonoBehaviour {
     string[] textHistory;
     int historySelect;
 
-    bool[] activeStates;
+    public bool[] activeStates;
     bool[] responseStates;
     int activeUsers;
 
     public TextMeshProUGUI[] textArray;
+
+    public bool[] GetActiveStates() {
+        return activeStates;
+    }
     //
     //
     //
@@ -277,15 +281,6 @@ public class GameMaster : MonoBehaviour {
             }
             IncrementHistorySelect();
         }
-        print("text history:");
-        print(textHistory[0]);
-        print(textHistory[1]);
-        print(textHistory[2]);
-        print(textHistory[3]);
-        print(textHistory[4]);
-        print(textHistory[5]);
-        print(textHistory[6]);
-        print(textHistory[7]);
     }
     void IncrementHistorySelect() {
         historySelect++;
