@@ -100,17 +100,17 @@ public class GameMaster : MonoBehaviour {
         currentTags = new string[] { " ", " ", " " };
 
         //These are the arrays which contain all the dialogue and tags
-        actionDialogue = new string[] { "This game really gets the blood pumping!", "Let's play something fast paced.", "How about some high octance gaming?"};
-        adventureDialogue = new string[] { "We need to explore that new area we found.", "I heard about this new thing we can do.", "Let's see what the twist the story takes next."};
+        actionDialogue = new string[] { "This game really gets the blood pumping!", "Let's play something fast paced.", "How about some high octance gaming?", "I hear this game is pretty intense." };
+        adventureDialogue = new string[] { "We need to explore that new area we found.", "It's time for some questing!", "Let's see what the twist the story takes next."};
         simulationDialogue = new string[] { "It has some pretty realistic controls.", "The weather effects look really good!", "The physics are super realistic."};
         sportsDialogue = new string[] { "It's just like playing in real life!", "It has a pretty good announcer."};
-        coopDialogue = new string[] { "I need my partner to watch my back!", "It's always better to play with friends.", "Let's see how far we can get this time." };
-        survivalDialogue = new string[] { "Let's see how long we can survive.", "It's easier to survive with more people.", "Strength in numbers, come one!"};
-        fpsDialogue = new string[] { "The best games are in first person.", "Let's try some of the unreal weaponry.", "I hear this game is pretty intense."};
-        pvpDialogue = new string[] { "Come and take me on!", "We can team up against other players.", "Let's try and level our characters up."};
+        coopDialogue = new string[] { "I need my partner to watch my back!", "It's always better to play with friends.", "Working together is fun!" };
+        survivalDialogue = new string[] { "Let's see how long we can survive.", "It's easier to survive with more people."};
+        fpsDialogue = new string[] { "The best games are in first person.", "Let's try some of the unreal weaponry.", };
+        pvpDialogue = new string[] { "Come and take me on!", "We can team up against other players."};
         sandboxDialogue = new string[] { "It's fun to mess around a bit.", "The possibilities are endless!", "We can do whatever we want."};
         craftingDialogue = new string[] { "There's lots of crafting options to unlock!", "I've collected a lot of materials for crafting.", "I found some new things to craft with!" };
-        tacticalDialogue = new string[] { "Let's try this new strategy.", "I reckon we can figure out that section.", "We can practice that tactic we learned." };
+        tacticalDialogue = new string[] { "Let's try this new strategy.", "We can practice that tactic we learned." };
 
         tags = new string[] { "Action", "Adventure", "Simulation", "Sports", "Co-Op", "Survival", 
                               "FPS", "PvP", "Sandbox", "Crafting", "Tactical" };
