@@ -830,7 +830,6 @@ MonoBehaviour:
   active: 1
   positive: 0
   join: 0
-  mood: 40
   dialogueTag: 
 --- !u!1 &186267341
 GameObject:
@@ -1037,7 +1036,6 @@ MonoBehaviour:
   tags: []
   gm: {fileID: 1831029694}
   userJoin: {fileID: 2139838910}
-  sc: {fileID: 0}
   timer: {fileID: 0}
   userPicsArray: []
   myUserPic: 0
@@ -1059,7 +1057,6 @@ MonoBehaviour:
   active: 1
   positive: 0
   join: 0
-  mood: 40
   dialogueTag: 
 --- !u!224 &244554359 stripped
 RectTransform:
@@ -2328,7 +2325,7 @@ PrefabInstance:
         type: 3}
       propertyPath: userPics.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
         type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -2429,7 +2426,7 @@ PrefabInstance:
         type: 3}
       propertyPath: userPics.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
         type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -3388,7 +3385,7 @@ PrefabInstance:
         type: 3}
       propertyPath: userPics.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
         type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -3655,7 +3652,7 @@ PrefabInstance:
         type: 3}
       propertyPath: userPics.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 7d881cdbecde064418a967b3d563dc28,
+      objectReference: {fileID: 21300000, guid: 4d0bd56077dbddb43b0d7af5ee5a0393,
         type: 3}
     - target: {fileID: 1279044612059641575, guid: adc80cbc849484944a98344e0694ee9e,
         type: 3}
@@ -6049,7 +6046,6 @@ MonoBehaviour:
   gm: {fileID: 1831029694}
   userJoin: {fileID: 2139838910}
   timer: {fileID: 0}
-  userA: {fileID: 0}
   myUserPic: 0
   myUserName: 
   tagOne: 
@@ -6068,7 +6064,6 @@ MonoBehaviour:
   active: 1
   positive: 0
   join: 0
-  mood: 40
   dialogueTag: 
 --- !u!1 &1960250669
 GameObject:

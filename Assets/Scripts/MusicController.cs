@@ -17,6 +17,10 @@ public class MusicController : MonoBehaviour {
         EventManager.EndEvent -= SlowDown;
     }
 
+    private void Awake() {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
     void PlayMusic() {
         StartCoroutine(PlayDelay());
     }
