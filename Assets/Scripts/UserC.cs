@@ -24,11 +24,13 @@ public class UserC : MonoBehaviour
     public Text tagTextTwo;
     public Text tagTextThree;
 
-    //profile pic locations
-    public Image pic1;
-    public Image pic2;
-    public Image pic3;
-   
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite sprite1;
+    public Sprite sprite2;
+    public Sprite sprite3;
+    public Sprite mySprite;
+
     //just a random int to determine which profile pic is used
     public int profilePic;
 
@@ -58,11 +60,6 @@ public class UserC : MonoBehaviour
         tags.Add("Sandbox");
         tags.Add("Competitive");
         tags.Add("Tactical");
-
-        //hides profiles pics until further notice
-        pic1.enabled = false;
-        pic2.enabled = false;
-        pic3.enabled = false;
 
         //sets username at start
         myUserName = "Sam";
@@ -101,19 +98,22 @@ public class UserC : MonoBehaviour
     {
         if (profilePic <= 29)
         {
-            pic1.enabled = true;
+            mySprite = sprite1;
+            spriteRenderer.sprite = mySprite;
             myUserPic = 301;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
-            pic2.enabled = true;
+            mySprite = sprite2;
+            spriteRenderer.sprite = mySprite;
             myUserPic = 302;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
-            pic3.enabled = true;
+            mySprite = sprite3;
+            spriteRenderer.sprite = mySprite;
             myUserPic = 303;
         }
     }
