@@ -46,6 +46,9 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if( Input.GetKeyDown(0) ) {
+            timer -= 15f;
+        }
         if( gameRunning ) {
             timer -= Time.deltaTime;
             myText.text = string.Format("{0:00.00}", timer);
@@ -61,16 +64,22 @@ public class TimerScript : MonoBehaviour
             spedUp = true;
         }
 
-        if (gameRunning == false && win == true)
+        /*if (gameRunning == false && win == true)
         {
+            win = false;
+            StartCoroutine(LoseSequence());
+        }
+
+        IEnumerator LoseSequence() {
+            yield return new WaitForSeconds(4f);
             SceneManager.LoadScene(sceneBuildIndex: 2);
         }
-        /*else if (gameRunning == false && win == false)
+        else if (gameRunning == false && win == false)
         {
             SceneManager.LoadScene(sceneBuildIndex: 3);
         }*/
-        
+
     }
 
-    
+
 }
