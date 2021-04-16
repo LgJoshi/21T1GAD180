@@ -97,21 +97,21 @@ public class UserA : MonoBehaviour
         if (profilePic <= 29)
         {
             mySprite = sprite1;
-            spriteRenderer.sprite = mySprite;
+            spriteRenderer.sprite = sprite1;
             myUserPic = 101;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
             mySprite = sprite2;
-            spriteRenderer.sprite = mySprite;
+            spriteRenderer.sprite = sprite2;
             myUserPic = 102;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
             mySprite = sprite3;
-            spriteRenderer.sprite = mySprite;
+            spriteRenderer.sprite = sprite3;
             myUserPic = 103;
         }
     }
