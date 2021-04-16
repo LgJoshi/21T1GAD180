@@ -478,10 +478,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags: []
   gm: {fileID: 1831029694}
-  userName: 
+  userJoin: {fileID: 0}
+  timer: {fileID: 0}
+  myUserPic: 0
+  myUserName: 
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 787177000}
   tagTextOne: {fileID: 186267343}
   tagTextTwo: {fileID: 700718626}
@@ -490,7 +494,10 @@ MonoBehaviour:
   pic2: {fileID: 195599695}
   pic3: {fileID: 841659540}
   profilePic: 0
-  mood: 40
+  userNumber: 2
+  active: 1
+  positive: 0
+  join: 0
   dialogueTag: 
 --- !u!1 &186267341
 GameObject:
@@ -690,10 +697,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags: []
   gm: {fileID: 1831029694}
-  userName: 
+  userJoin: {fileID: 0}
+  timer: {fileID: 0}
+  userPicsArray: []
+  myUserPic: 0
+  userpics: {fileID: 0}
+  myUserName: 
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 1847874766}
   tagTextOne: {fileID: 1541853749}
   tagTextTwo: {fileID: 672639156}
@@ -702,7 +715,10 @@ MonoBehaviour:
   pic2: {fileID: 406146019}
   pic3: {fileID: 671802231}
   profilePic: 0
-  mood: 40
+  userNumber: 0
+  active: 1
+  positive: 0
+  join: 0
   dialogueTag: 
 --- !u!1 &270877151
 GameObject:
@@ -1871,7 +1887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08474d95ce99d4b4e905cd7ef2cc9b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myText: {fileID: 1687113390}
 --- !u!114 &777120687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3567,6 +3582,9 @@ MonoBehaviour:
   optionTwo: {fileID: 1854602554}
   optionThree: {fileID: 777120686}
   selectedTag: 
+  selectedDialogue: 
+  selectedGame: 0
+  textArray: []
 --- !u!1 &1841262723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,7 +3775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08474d95ce99d4b4e905cd7ef2cc9b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myText: {fileID: 928131852}
 --- !u!114 &1848558287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4097,7 +4114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08474d95ce99d4b4e905cd7ef2cc9b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myText: {fileID: 1177888102}
 --- !u!114 &1854602555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4331,10 +4347,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags: []
   gm: {fileID: 1831029694}
-  userName: 
+  userJoin: {fileID: 0}
+  timer: {fileID: 0}
+  myUserPic: 0
+  myUserName: 
   tagOne: 
   tagTwo: 
   tagThree: 
+  offline: 
   userNameText: {fileID: 1449865302}
   tagTextOne: {fileID: 270877153}
   tagTextTwo: {fileID: 106854846}
@@ -4343,7 +4363,10 @@ MonoBehaviour:
   pic2: {fileID: 1673136556}
   pic3: {fileID: 1673136556}
   profilePic: 0
-  mood: 40
+  userNumber: 1
+  active: 1
+  positive: 0
+  join: 0
   dialogueTag: 
 --- !u!1 &1963529602
 GameObject:
@@ -4617,10 +4640,76 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 743839031629857855, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 111a4c9eaf2ba3b40a8d14990fb2335e,
+        type: 3}
+    - target: {fileID: 743839031839806471, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839031839806471, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839031839806471, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
     - target: {fileID: 743839031984862409, guid: 7a334172c4e80a94f83f20e84c8a2934,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1831029691}
+    - target: {fileID: 743839031984862410, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6901922
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839031984862410, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839031984862410, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6973576
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839032347423024, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839032347423024, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839032347423024, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839033349470860, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839033349470860, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -64
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839033349470861, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -128.09978
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a334172c4e80a94f83f20e84c8a2934, type: 3}
