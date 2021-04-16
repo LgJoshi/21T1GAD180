@@ -13,11 +13,13 @@ public class PlayerOptions : MonoBehaviour
 	public AudioClip Clicky;
     bool selected;
     string myTag;
+    GameMaster gm;
 
     void Start()
 	{
 		audioSource = this.GetComponent<AudioSource>();
-	}
+        gm = GameObject.Find("Master").GetComponent<GameMaster>();
+    }
 
     void OnEnable() {
         EventManager.StartEvent += StartupChat;

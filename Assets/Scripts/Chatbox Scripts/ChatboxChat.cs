@@ -50,7 +50,8 @@ public class ChatboxChat : MonoBehaviour
     void Start()
 	{
 		audioSource = this.GetComponent<AudioSource>();
-	}
+        gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
+    }
 
     void Awake() {
 
@@ -60,7 +61,6 @@ public class ChatboxChat : MonoBehaviour
         chatDelay = timeSpan / 4;
         myImage = this.GetComponent<Image>();
         myText = GetComponentInChildren<TextMeshProUGUI>();
-        gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
 
         myImage.enabled = false;
         myText.enabled = false;

@@ -19,6 +19,7 @@ public class MusicController : MonoBehaviour {
 
     private void Awake() {
         DontDestroyOnLoad(transform.gameObject);
+        StopMusic();
     }
 
     void PlayMusic() {
