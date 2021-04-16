@@ -9,9 +9,15 @@ public class PlayerOptions : MonoBehaviour
     TextMeshProUGUI myText;
     Button myButton;
     Image myImage;
-
+	AudioSource audioSource;
+	public AudioClip Clicky;
     bool selected;
     string myTag;
+
+    void Start()
+	{
+		audioSource = this.GetComponent<AudioSource>();
+	}
 
     void OnEnable() {
         EventManager.StartEvent += StartupChat;
@@ -53,6 +59,7 @@ public class PlayerOptions : MonoBehaviour
 
     public void ImSelected() {
         selected = true;
+		audioSource.PlayOneShot(Clicky,0.7f);
     }
 
     void TempDisable() {

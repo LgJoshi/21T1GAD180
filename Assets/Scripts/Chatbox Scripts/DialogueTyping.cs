@@ -52,14 +52,15 @@ public class DialogueTyping : MonoBehaviour
         myDialogue = "I'm looking for people to play " + textArray[gameMaster.GetSelectedGame()].text + "!";
         typingDelay = intialTimespan / myDialogue.Length;
         StartCoroutine(PlayText());
+		audioSource.PlayOneShot(TypingSounds,0.7f);
     }
 
     void ChangeText() {
         StopCoroutine(PlayText());
         myDialogue = gameMaster.GetSelectedDialogue();
         typingDelay = intialTimespan / myDialogue.Length;
+		StartCoroutine(PlayText());
 		audioSource.PlayOneShot(TypingSounds,0.7f);
-        StartCoroutine(PlayText());
     }
 
     IEnumerator PlayText() {

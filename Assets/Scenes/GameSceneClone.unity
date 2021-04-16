@@ -1887,6 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08474d95ce99d4b4e905cd7ef2cc9b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clicky: {fileID: 0}
 --- !u!114 &777120687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3775,6 +3776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08474d95ce99d4b4e905cd7ef2cc9b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clicky: {fileID: 0}
 --- !u!114 &1848558287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4114,6 +4116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08474d95ce99d4b4e905cd7ef2cc9b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clicky: {fileID: 0}
 --- !u!114 &1854602555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4534,6 +4537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChooseGamePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 743839031629857852, guid: 7a334172c4e80a94f83f20e84c8a2934,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 743839031629857853, guid: 7a334172c4e80a94f83f20e84c8a2934,
         type: 3}

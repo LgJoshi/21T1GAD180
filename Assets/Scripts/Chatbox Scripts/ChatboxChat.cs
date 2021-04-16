@@ -17,6 +17,9 @@ public class ChatboxChat : MonoBehaviour
     string[] negativeResponse;
     string[] textHistory;
 
+	AudioSource audioSource;
+	public AudioClip BubblePop;
+
     float timeSpan;
     float chatDelay;
 
@@ -43,6 +46,11 @@ public class ChatboxChat : MonoBehaviour
         EventManager.ChatScrollEvent -= ChatTextScroll;
         EventManager.EndEvent -= StopGame;
     }
+
+    void Start()
+	{
+		audioSource = this.GetComponent<AudioSource>();
+	}
 
     void Awake() {
 
@@ -131,6 +139,7 @@ public class ChatboxChat : MonoBehaviour
 
         int i = 0;
         while( i < activeUsers ) {
+			audioSource.PlayOneShot(BubblePop,0.3f);
             i++;
             //enables chatbox dialogue boxes starting from the first message
             if( textSelect == 1 ) {
