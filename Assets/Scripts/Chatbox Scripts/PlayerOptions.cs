@@ -14,6 +14,7 @@ public class PlayerOptions : MonoBehaviour
     bool selected;
     string myTag;
     GameMaster gm;
+    int activeUsers;
 
     void Start()
 	{
@@ -44,6 +45,7 @@ public class PlayerOptions : MonoBehaviour
     }
 
     void StartupChat() {
+        activeUsers = gm.GetActiveUsers();
         StartCoroutine(StartGameDelay());
     }
 
@@ -65,6 +67,7 @@ public class PlayerOptions : MonoBehaviour
     }
 
     void TempDisable() {
+        activeUsers = gm.GetActiveUsers();
         StartCoroutine(PlayText());
     }
 
@@ -83,7 +86,7 @@ public class PlayerOptions : MonoBehaviour
         myText.enabled = false;
 
         //time before buttons reappear. this time period should also equal total chatDelay (or timespan) in chatboxchat and chatboxpic
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1+activeUsers);
 
         myButton.enabled = true;
         myImage.enabled = true;
