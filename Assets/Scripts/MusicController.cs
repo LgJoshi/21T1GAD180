@@ -5,6 +5,7 @@ using UnityEngine;
 public class MusicController : MonoBehaviour {
     //Music list variable for controlling which AudioSource component to play when needed
     public AudioSource[] music;
+    static MusicController musicInstance;
 
     void OnEnable() {
         EventManager.StartEvent += PlayMusic;
@@ -18,7 +19,12 @@ public class MusicController : MonoBehaviour {
     }
 
     private void Awake() {
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(this.gameObject);
+        if( musicInstance == null ) {
+            musicInstance = this;
+        } else {
+            Object.Destroy(this.gameObject);
+        }
         StopMusic();
     }
 
@@ -28,6 +34,7 @@ public class MusicController : MonoBehaviour {
 
     IEnumerator PlayDelay() {
         yield return new WaitForSeconds(1.5f);
+        music[0].pitch = 1f;
         music[0].Play();
     }
 
@@ -39,7 +46,7 @@ public class MusicController : MonoBehaviour {
         music[0].pitch = 0.8f;
     }
 
-    void StopMusic() {
+    public void StopMusic() {
         music[0].Stop();
     }
 }

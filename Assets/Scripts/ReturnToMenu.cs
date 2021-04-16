@@ -19,6 +19,7 @@ public class ReturnToMenu : MonoBehaviour
 	
 	public void ReturnToMainScene()
 	{
+        GameObject.Find("MusicMaster").GetComponent<MusicController>().StopMusic();
 		SceneManager.LoadScene(sceneName:"Menu");
 	}
 }

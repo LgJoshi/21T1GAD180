@@ -28,9 +28,11 @@ public class TimerScript : MonoBehaviour
     //starts timer when a game is chosen
     void OnEnable() {
         EventManager.StartEvent += TimerStart;
+        EventManager.EndEvent += GameEndCheck;
     }
     void OnDisable() {
         EventManager.StartEvent -= TimerStart;
+        EventManager.EndEvent -= GameEndCheck;
     }
     void TimerStart() {
         this.GetComponent<Image>().enabled = true;
@@ -46,7 +48,7 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetKeyDown(0) ) {
+        if( Input.GetKeyDown("0") ) {
             timer -= 15f;
         }
         if( gameRunning ) {
@@ -64,22 +66,22 @@ public class TimerScript : MonoBehaviour
             spedUp = true;
         }
 
-        /*if (gameRunning == false && win == true)
-        {
-            win = false;
-            StartCoroutine(LoseSequence());
-        }
-
-        IEnumerator LoseSequence() {
-            yield return new WaitForSeconds(4f);
-            SceneManager.LoadScene(sceneBuildIndex: 2);
-        }
-        else if (gameRunning == false && win == false)
-        {
-            SceneManager.LoadScene(sceneBuildIndex: 3);
-        }*/
-
+        
     }
 
-
+    void GameEndCheck() {
+        if( win == true ) {
+            StartCoroutine(DelayWin());
+        } else if( win == false ) {
+            StartCoroutine(DelayLose());
+        }
+    }
+    IEnumerator DelayWin() {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(sceneBuildIndex: 2);
+    }
+    IEnumerator DelayLose() {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(sceneBuildIndex: 3);
+    }
 }
