@@ -1086,6 +1086,16 @@ PrefabInstance:
       propertyPath: historyNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3199.9995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c16c9119f7bf0194cb7afc4b0919f888, type: 3}
 --- !u!224 &270877152 stripped
@@ -3937,6 +3947,16 @@ PrefabInstance:
       propertyPath: historyNumber
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3199.9995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c16c9119f7bf0194cb7afc4b0919f888, type: 3}
 --- !u!1 &1076397806
@@ -4377,6 +4397,16 @@ PrefabInstance:
         type: 3}
       propertyPath: historyNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3199.9995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c16c9119f7bf0194cb7afc4b0919f888, type: 3}
@@ -7513,5 +7543,15 @@ PrefabInstance:
       propertyPath: BubblePop
       value: 
       objectReference: {fileID: 8300000, guid: 219797f0c08367f4b91ac41c5d9880b8, type: 3}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172126161044235424, guid: c16c9119f7bf0194cb7afc4b0919f888,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3199.9995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c16c9119f7bf0194cb7afc4b0919f888, type: 3}
