@@ -798,9 +798,11 @@ MonoBehaviour:
   tagTextOne: {fileID: 1048355392}
   tagTextTwo: {fileID: 1473129552}
   tagTextThree: {fileID: 2056706063}
-  pic1: {fileID: 52044508}
-  pic2: {fileID: 195599695}
-  pic3: {fileID: 841659540}
+  spriteRenderer: {fileID: 0}
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
+  mySprite: {fileID: 0}
   profilePic: 0
   userNumber: 2
   active: 1
@@ -1066,9 +1068,11 @@ MonoBehaviour:
   tagTextOne: {fileID: 500041471}
   tagTextTwo: {fileID: 107801934}
   tagTextThree: {fileID: 1812847041}
-  pic1: {fileID: 1392998031}
-  pic2: {fileID: 406146019}
-  pic3: {fileID: 671802231}
+  spriteRenderer: {fileID: 0}
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
+  mySprite: {fileID: 0}
   profilePic: 0
   userNumber: 0
   active: 1
@@ -5084,7 +5088,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 219797f0c08367f4b91ac41c5d9880b8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -6729,9 +6733,11 @@ MonoBehaviour:
   tagTextOne: {fileID: 270877153}
   tagTextTwo: {fileID: 500568465}
   tagTextThree: {fileID: 110142468}
-  pic1: {fileID: 2030279240}
-  pic2: {fileID: 1673136556}
-  pic3: {fileID: 1673136556}
+  spriteRenderer: {fileID: 0}
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
+  mySprite: {fileID: 0}
   profilePic: 0
   userNumber: 1
   active: 1
