@@ -10,6 +10,7 @@ public class ChatboxPic : MonoBehaviour
     int historySelect;
 
     public Sprite[] userPics;
+    public Sprite playerPic;
     SpriteRenderer spriteRenderer;
     GameMaster gameMaster;
     Sprite[] spriteHistory;
@@ -20,9 +21,9 @@ public class ChatboxPic : MonoBehaviour
     UserC userCScript;
     */
 
-    Image userAImage;
-    Image userBImage;
-    Image userCImage;
+    UserA userA;
+    UserB userB;
+    UserC userC;
 
     float timeSpan;
     float chatDelay;
@@ -49,17 +50,18 @@ public class ChatboxPic : MonoBehaviour
         chatDelay = timeSpan/4;
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
+        userA = GameObject.Find("UserA").GetComponent<UserA>();
+        userB = GameObject.Find("UserB").GetComponent<UserB>();
+        userC = GameObject.Find("UserC").GetComponent<UserC>();
+
+        userPics = new Sprite[4];
+
+        userPics[0] = userA.GetSprite();
+        userPics[1] = userB.GetSprite();
+        userPics[2] = userC.GetSprite();
+        userPics[3] = playerPic;
+
         spriteHistory = new Sprite[] { userPics[0], userPics[3], userPics[3], userPics[3], userPics[0], userPics[1], userPics[2], userPics[3] };
-
-        /*
-        userAImage = GameObject.Find("UserA").GetComponentInChildren<Image>();
-        userBImage = GameObject.Find("UserB").GetComponentInChildren<Image>();
-        userCImage = GameObject.Find("UserC").GetComponentInChildren<Image>();
-
-        userPics[0] = userAImage.sprite;
-        userPics[1] = userBImage.sprite;
-        userPics[2] = userCImage.sprite;
-        */
         gameMaster = GameObject.Find("Master").GetComponent<GameMaster>();
         activeUsers = 3;
         spriteSelect = historyNumber;

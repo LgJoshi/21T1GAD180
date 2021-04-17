@@ -43,8 +43,8 @@ public class DialogueTyping : MonoBehaviour
         myText.text = " ";
 
         //if this is changed, make sure initialTimespan+sendDelay matches initial delay during scroll and playtext couroutines on ChetboxChat, ChatboxPic and PlayerOptions
-        intialTimespan = 1.0f;
-        sendDelay = 0.3f;
+        intialTimespan = .8f;
+        sendDelay = 0.4f;
     }
 
     void StartPlayText() {
