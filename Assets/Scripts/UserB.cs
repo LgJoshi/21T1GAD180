@@ -184,11 +184,13 @@ public class UserB : MonoBehaviour
                 if (dialogueTag == tagOne || dialogueTag == tagTwo || dialogueTag == tagThree)
                 {
                     mood = mood + 10;
+                    positive = true;
                 }
                 //if no match found, mood decreased by 10
                 else
                 {
                     mood = mood - 10;
+                    positive = false;
                 }
             }
             gm.UserStuff(userNumber, active, positive);
