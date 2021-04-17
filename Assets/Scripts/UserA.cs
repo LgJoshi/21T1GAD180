@@ -229,4 +229,9 @@ public class UserA : MonoBehaviour
     {
         EventManager.OptionEvent -= DialogueCheck;
     }
+
+    public Sprite GetSprite()
+    {
+        return mySprite;
+    }
 }

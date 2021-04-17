@@ -222,4 +222,8 @@ public class UserB : MonoBehaviour
     {
         return myUserPic;
     }
+    public Sprite GetSprite()
+    {
+        return mySprite;
+    }
 }
