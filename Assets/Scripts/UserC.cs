@@ -10,8 +10,6 @@ public class UserC : MonoBehaviour
     public UserJoin userJoin;
     public TimerScript timer;
 
-    public int myUserPic;
-
     public string myUserName;
     public string tagOne;
     public string tagTwo;
@@ -100,21 +98,18 @@ public class UserC : MonoBehaviour
         {
             mySprite = sprite1;
             spriteRenderer.sprite = mySprite;
-            myUserPic = 301;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
             mySprite = sprite2;
             spriteRenderer.sprite = mySprite;
-            myUserPic = 302;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
             mySprite = sprite3;
             spriteRenderer.sprite = mySprite;
-            myUserPic = 303;
         }
     }
 
@@ -222,10 +217,6 @@ public class UserC : MonoBehaviour
         EventManager.OptionEvent -= DialogueCheck;
     }
 
-    public int GetMyImage()
-    {
-        return myUserPic;
-    }
     public Sprite GetSprite()
     {
         return mySprite;

@@ -13,7 +13,6 @@ public class UserA : MonoBehaviour
     public TimerScript timer;
 
     public Image[] userPicsArray;
-    public int myUserPic;
 
     public UserPics userpics;
 
@@ -98,21 +97,18 @@ public class UserA : MonoBehaviour
         {
             mySprite = sprite1;
             spriteRenderer.sprite = sprite1;
-            myUserPic = 101;
         }
 
         else if (profilePic >= 30 && profilePic <= 59)
         {
             mySprite = sprite2;
             spriteRenderer.sprite = sprite2;
-            myUserPic = 102;
         }
 
         else if (profilePic >= 60 && profilePic <= 89)
         {
             mySprite = sprite3;
             spriteRenderer.sprite = sprite3;
-            myUserPic = 103;
         }
     }
 
@@ -213,11 +209,6 @@ public class UserA : MonoBehaviour
     public string GetMyName()
     {
         return myUserName;
-    }
-
-    public int GetMyImage()
-    {
-        return myUserPic;
     }
 
     //subs and unsubs from dialogue check event
