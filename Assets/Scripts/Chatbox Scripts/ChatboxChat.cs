@@ -69,6 +69,8 @@ public class ChatboxChat : MonoBehaviour
         textSelect = historyNumber;
 
         historySelect = 3;
+
+        activeUsers = 3;
     }
 
     // Update is called once per frame
@@ -126,20 +128,14 @@ public class ChatboxChat : MonoBehaviour
                 myText.text = textHistory[textSelect - 1];
             }
         }
-
-        /*
-        if( textSelect == 0 ) {
-            myText.text = textHistory[8];
-        } else {
-            myText.text = textHistory[textSelect - 1];
-        }
-        */
         
         yield return new WaitForSeconds(chatDelay);
 
         int i = 0;
         while( i < activeUsers ) {
-			audioSource.PlayOneShot(BubblePop,0.3f);
+            if( historyNumber == 3 ) {
+                audioSource.PlayOneShot(BubblePop, 0.3f);
+            }
             i++;
             //enables chatbox dialogue boxes starting from the first message
             if( textSelect == 1 ) {

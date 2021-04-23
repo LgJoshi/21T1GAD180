@@ -15,9 +15,11 @@ public class UserPics : MonoBehaviour
 
     void Start()
     {
+        /*
         UserAImage = userA.GetMyImage();
         UserBImage = userB.GetMyImage();
         UserCImage = userC.GetMyImage();
+        */
     }
 
     public int GetImageA()

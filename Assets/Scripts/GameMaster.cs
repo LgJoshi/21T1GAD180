@@ -14,6 +14,8 @@ public class GameMaster : MonoBehaviour {
     //this is the the list of PlayerOption scripts located on the buttons
     PlayerOptions[] optionsList;
 
+    RoundTracker rTracker;
+
     //these will be used to reference the User scripts maybe depending on what we decide to do.
     /*public UserA userA;
     public UserB userB;
@@ -131,7 +133,9 @@ public class GameMaster : MonoBehaviour {
 
         activeStates = new bool[] { true, true, true };
         responseStates = new bool[] { true, true, true };
-        activeUsers = 3;
+
+        rTracker = GameObject.Find("Round Tracker").GetComponent<RoundTracker>();
+        activeUsers = rTracker.GetRoundNumber()+2;
         //
         //
         //
