@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public void PlayGame() {
-        Debug.Log("Game started");
         SceneManager.LoadScene(1);
+    }
+
+    public void OpenCredits() {
+        SceneManager.LoadScene(4);
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }
