@@ -719,6 +719,7 @@ MonoBehaviour:
   tagTwo: 
   tagThree: 
   offline: 
+  joined: 
   userNameText: {fileID: 787177000}
   tagTextOne: {fileID: 1048355392}
   tagTextTwo: {fileID: 1473129552}
@@ -914,6 +915,7 @@ MonoBehaviour:
   tagTwo: 
   tagThree: 
   offline: 
+  joined: 
   userNameText: {fileID: 1847874766}
   tagTextOne: {fileID: 500041471}
   tagTextTwo: {fileID: 107801934}
@@ -3706,6 +3708,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 543992325}
     m_Modifications:
+    - target: {fileID: 1066613785005388692, guid: b36392a8b476b834f88d8a2abc8142e8,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066613785005388692, guid: b36392a8b476b834f88d8a2abc8142e8,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1066613785005388693, guid: b36392a8b476b834f88d8a2abc8142e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6426,6 +6438,7 @@ MonoBehaviour:
   tagTwo: 
   tagThree: 
   offline: 
+  joined: 
   userNameText: {fileID: 1449865302}
   tagTextOne: {fileID: 270877153}
   tagTextTwo: {fileID: 500568465}
@@ -6742,6 +6755,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1628619535}
     m_Modifications:
+    - target: {fileID: 1066613785005388692, guid: b36392a8b476b834f88d8a2abc8142e8,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1066613785005388693, guid: b36392a8b476b834f88d8a2abc8142e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7348,6 +7366,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 715362215}
     m_Modifications:
+    - target: {fileID: 1066613785005388692, guid: b36392a8b476b834f88d8a2abc8142e8,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1066613785005388693, guid: b36392a8b476b834f88d8a2abc8142e8,
         type: 3}
       propertyPath: m_LocalPosition.x

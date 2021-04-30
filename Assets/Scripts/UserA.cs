@@ -21,6 +21,7 @@ public class UserA : MonoBehaviour
     public string tagTwo;
     public string tagThree;
     public string offline;
+    public string joined;
 
     //text boxes for name/tags
     public Text userNameText;
@@ -65,8 +66,8 @@ public class UserA : MonoBehaviour
         tags.Add("Competitive");
         tags.Add("Tactical");
 
-    //sets username at start
-    myUserName = "Tim";
+         //sets username at start
+        myUserName = "Tim";
         userNameText.text = myUserName;
 
         //executes GetPic on start
@@ -79,6 +80,7 @@ public class UserA : MonoBehaviour
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
         offline = "User is offline";
+        joined = "User has joined call";
                 
     }
 
@@ -124,11 +126,11 @@ public class UserA : MonoBehaviour
     //gets user's tags
     public void GetTags(string newTagOne, string newTagTwo, string newTagThree)
     {
-
+        
         for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
-            tagOne = tags[Random.Range(0, tags.Count)];
+            tagOne = tags[4].ToString();
             print("Tag One = " + tagOne);
             //tagTextOne.text = tagOne;
             tags.Remove(tagOne);
@@ -174,6 +176,9 @@ public class UserA : MonoBehaviour
             {
                 join = true;
                 userJoin.userJoin();
+                tagTextOne.text = joined;
+                Destroy(tagTextTwo);
+                Destroy(tagTextThree);
                 panelDull();
                 active = false;
             }

@@ -15,6 +15,7 @@ public class UserC : MonoBehaviour
     public string tagTwo;
     public string tagThree;
     public string offline;
+    public string joined;
 
     //text boxes for names/tags
     public Text userNameText;
@@ -73,6 +74,7 @@ public class UserC : MonoBehaviour
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
         offline = "User is offline";
+        joined = "User has joined call";
     }
 
     private void Update()
@@ -129,7 +131,7 @@ public class UserC : MonoBehaviour
         for (int i = 0; i <= 0; i++)
         {
             //selects tagOne as a random number in the list between 0 & 9, prints to console
-            tagOne = tags[Random.Range(0, tags.Count)];
+            tagOne = tags[4].ToString();
             print("Tag One = " + tagOne);
             //tagTextOne.text = tagOne;
             tags.Remove(tagOne);
@@ -159,6 +161,9 @@ public class UserC : MonoBehaviour
                 join = true;
                 active = false;
                 userJoin.userJoin();
+                tagTextOne.text = joined;
+                Destroy(tagTextTwo);
+                Destroy(tagTextThree);
                 panelDull();
             }
 

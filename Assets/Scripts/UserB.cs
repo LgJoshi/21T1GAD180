@@ -15,6 +15,7 @@ public class UserB : MonoBehaviour
     public string tagTwo;
     public string tagThree;
     public string offline;
+    public string joined;
 
     //text boxes for names/tags
     public Text userNameText;
@@ -72,7 +73,8 @@ public class UserB : MonoBehaviour
         tagTextOne.text = tagOne;
         tagTextTwo.text = tagTwo;
         tagTextThree.text = tagThree;
-        offline = "User is offline";        
+        offline = "User is offline";
+        joined = "User has joined call";
     }
 
     private void Update()
@@ -156,6 +158,9 @@ public class UserB : MonoBehaviour
                 join = true;
                 active = false;
                 userJoin.userJoin();
+                tagTextOne.text = joined;
+                Destroy(tagTextTwo);
+                Destroy(tagTextThree);
                 panelDull();
             }
 
